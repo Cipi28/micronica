@@ -44,8 +44,8 @@ export const AppHeader = () => {
 
   return (
     <AppBar position="fixed">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      <Container maxWidth="full">
+        <Toolbar disableGutters >
           <Typography
             variant="h6"
             noWrap
