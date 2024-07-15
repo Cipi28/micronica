@@ -1,17 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Outlet } from "react-router-dom";
+import { AppHeader } from "./components/AppHeader";
+import { ThemeProvider, createTheme } from "@mui/material";
+
 import './App.css'
 
 function App() {
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#d1cd00",
+      },
+      secondary: {
+        main: "#ffffff",
+      },
+    },
+  });
+
   return (
-    <>
-      <h1>Micronica</h1>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <ThemeProvider theme={theme}>
+      <AppHeader />
+      <Outlet />
+    </ThemeProvider>
   )
 }
 
