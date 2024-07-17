@@ -5,28 +5,25 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea, useMediaQuery} from '@mui/material';
 import Box from "@mui/material/Box";
-import {useTheme} from '@mui/material/styles';
 
 export default function PageCard({title, image}) {
-    const theme = useTheme();
 
     return (
         <Card sx={{
             padding: 0,
-            maxWidth: 450,
-            maxHeight: 450,
+            maxWidth: 430,
+            maxHeight: 430,
             '@media (max-width:900px)': {
-                maxWidth: 275,
-                maxHeight: 275,
+                maxWidth: 250,
+                maxHeight: 250,
             },
             display: 'flex', flexDirection: 'column', height: '100%'
         }}>
             <CardActionArea sx={{flex: 1, display: 'flex', flexDirection: 'column'}}>
                 <CardMedia
                     component="img"
-                    // image="/static/images/cards/contemplative-reptile.jpg"
                     image={image}
-                    alt="green iguana"
+                    alt={`${title} image`}
                 />
                 <Box sx={{flex: 1, overflow: 'auto'}}>
                     <CardContent sx={{padding: 0, '&:last-child': {paddingBottom: 0}}}>

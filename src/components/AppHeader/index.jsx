@@ -10,11 +10,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import Badge from '@mui/material/Badge';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from "@mui/icons-material/MoreVert";
 import {Accordion, AccordionDetails, AccordionSummary, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -22,15 +17,12 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import {styled, useTheme} from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-
-const pages = ['ABOUT US', 'OUR SERVICES', 'CONTACT US']; //todo: set the actual pages
+import {Link} from "react-router-dom";
 
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
 }));
@@ -38,16 +30,22 @@ const DrawerHeader = styled('div')(({theme}) => ({
 const DrawerHeaderMain = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
-    // padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-    // justifyContent: 'flex-end',
 }));
 
 export const AppHeader = () => {
     const [open, setOpen] = React.useState(false);
     const [openMain, setOpenMain] = React.useState(false);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const openMenu = Boolean(anchorEl);
     const theme = useTheme();
+
+    const handleHover = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleOffHover = () => {
+        setAnchorEl(null);
+    };
 
     const handleDrawerOpenMain = () => {
         setOpenMain(true);
@@ -74,8 +72,7 @@ export const AppHeader = () => {
                         <Typography
                             variant="h6"
                             noWrap
-                            component="a"
-                            // href="/" todo: try to go to home without rerendering the page
+                            component={Link} to="/"
                             sx={{
                                 mr: 2,
                                 display: {xs: 'none', md: 'flex'},
@@ -104,8 +101,7 @@ export const AppHeader = () => {
                         <Typography
                             variant="h5"
                             noWrap
-                            component="a"
-                            href="#app-bar-with-responsive-menu"
+                            component={Link} to="/"
                             sx={{
                                 mr: 2,
                                 display: {xs: 'flex', md: 'none'},
@@ -120,16 +116,91 @@ export const AppHeader = () => {
                             MICRONICA
                         </Typography>
                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                            {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    sx={{my: 2, color: 'white', display: 'block'}}
-                                    onClick={() => {
-                                    }}
+                            <Button
+                                key='aboutUS'
+                                sx={{my: 2, color: 'white', display: 'block'}}
+                                onClick={() => {
+                                }}
+                                component={Link} to="/about-us"
+                            >
+                                ABOUT US
+                            </Button>
+                            <Button
+                                key='services'
+                                sx={{my: 2, color: 'white', display: 'block'}}
+                                onMouseEnter={handleHover}
+                                // onMouseLeave={() => {
+                                //     handleOffHover()
+                                // }}
+                            >
+                                OUR SERVICES
+                            </Button>
+                            <Menu
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={openMenu}
+                                onClose={handleOffHover}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
+                            >
+                                <MenuItem
+                                    sx={{fontSize: '0.75rem'}}
+                                    component={Link} to="/cnc-machining"
+                                    onClick={handleOffHover}
                                 >
-                                    {page}
-                                </Button>
-                            ))}
+                                    CNC MACHINING
+                                </MenuItem>
+                                <Divider/>
+                                <MenuItem
+                                    sx={{fontSize: '0.75rem'}}
+                                    component={Link} to="/3d-printing"
+                                    onClick={handleOffHover}
+                                >
+                                    3D PRINTING
+                                </MenuItem>
+                                <Divider/>
+                                <MenuItem
+                                    sx={{fontSize: '0.75rem'}}
+                                    component={Link} to="/injection-of-plastic-parts"
+                                    onClick={handleOffHover}
+                                >
+                                    INJECTION OF PLASTIC PARTS
+                                </MenuItem>
+                                <Divider/>
+                                <MenuItem
+                                    sx={{fontSize: '0.75rem'}}
+                                    component={Link} to="/laser-engraving"
+                                    onClick={handleOffHover}
+                                >
+                                    LASER ENGRAVING
+                                </MenuItem>
+                                <Divider/>
+                                <MenuItem
+                                    sx={{fontSize: '0.75rem'}}
+                                    component={Link} to="/tig-wig-mig-mag-welding"
+                                    onClick={handleOffHover}
+                                >
+                                    IG/WIG/MIG/MAG WELDING
+                                </MenuItem>
+                                <Divider/>
+                                <MenuItem
+                                    sx={{fontSize: '0.75rem'}}
+                                    component={Link} to="/mechanical-pneumatic-hydraulic-devices-and-systems"
+                                    onClick={handleOffHover}
+                                >
+                                    MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS
+                                </MenuItem>
+                            </Menu>
+                            <Button
+                                key='contact'
+                                sx={{my: 2, color: 'white', display: 'block'}}
+                                onClick={() => {
+                                }}
+                                component={Link} to="/contact-us"
+                            >
+                                CONTACT US
+                            </Button>
                         </Box>
 
                         <Box sx={{flexGrow: 0, display: {xs: 'none', md: 'flex'}}}>
@@ -152,6 +223,8 @@ export const AppHeader = () => {
                     '& .MuiDrawer-paper': {
                         width: '20rem',
                         boxSizing: 'border-box',
+                        height: '100hv',
+                        overflow: 'auto',
                     },
                 }}
                 variant="persistent"
@@ -161,7 +234,7 @@ export const AppHeader = () => {
                 <DrawerHeaderMain>
                     <List sx={{width: '100%'}}>
                         <ListItem key={'AboutUs'} disablePadding>
-                            <ListItemButton>
+                            <ListItemButton component={Link} to="/about-us" onClick={handleDrawerCloseMain}>
                                 <ListItemText primary={'ABOUT US'} sx={{marginLeft: '1rem'}}/>
                             </ListItemButton>
                             <IconButton onClick={handleDrawerCloseMain}
@@ -176,10 +249,10 @@ export const AppHeader = () => {
                         <Accordion
                             sx={{
                                 marginTop: 'none',
-                                boxShadow: 'none',  // Remove shadow
-                                border: 'none',     // Remove border
+                                boxShadow: 'none',
+                                border: 'none',
                                 '&:before': {
-                                    display: 'none', // Remove the default divider line
+                                    display: 'none',
                                 },
                             }}
                         >
@@ -193,40 +266,40 @@ export const AppHeader = () => {
                             <AccordionDetails sx={{padding: 0}}>
                                 <List sx={{padding: 0}}>
                                     <ListItem key={'CNC'} disablePadding>
-                                        <ListItemButton>
-                                            <ListItemText primary={'CNC MACHINING'} sx={{marginLeft: '2rem'}}/>
+                                        <ListItemButton component={Link} to="/cnc-machining" onClick={handleDrawerCloseMain}>
+                                            <ListItemText primary={'CNC MACHINING'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
                                         </ListItemButton>
                                     </ListItem>
                                     <ListItem key={'3D'} disablePadding>
-                                        <ListItemButton>
-                                            <ListItemText primary={'3D PRINTING'} sx={{marginLeft: '2rem'}}/>
+                                        <ListItemButton component={Link} to="/3d-printing" onClick={handleDrawerCloseMain}>
+                                            <ListItemText primary={'3D PRINTING'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
                                         </ListItemButton>
                                     </ListItem>
                                     <ListItem key={'INJECTION'} disablePadding>
-                                        <ListItemButton>
-                                            <ListItemText primary={'INJECTION OF PLASTIC PARTS'} sx={{marginLeft: '2rem'}}/>
+                                        <ListItemButton component={Link} to="/injection-of-plastic-parts" onClick={handleDrawerCloseMain}>
+                                            <ListItemText primary={'INJECTION OF PLASTIC PARTS'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
                                         </ListItemButton>
                                     </ListItem>
                                     <ListItem key={'LASER'} disablePadding>
-                                        <ListItemButton>
-                                            <ListItemText primary={'LASER ENGRAVING'} sx={{marginLeft: '2rem'}}/>
+                                        <ListItemButton component={Link} to="/laser-engraving" onClick={handleDrawerCloseMain}>
+                                            <ListItemText primary={'LASER ENGRAVING'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
                                         </ListItemButton>
                                     </ListItem>
                                     <ListItem key={'TIG'} disablePadding>
-                                        <ListItemButton>
-                                            <ListItemText primary={'TIG/WIG/MIG/MAG WELDING'} sx={{marginLeft: '2rem'}}/>
+                                        <ListItemButton component={Link} to="/tig-wig-mig-mag-welding" onClick={handleDrawerCloseMain}>
+                                            <ListItemText primary={'TIG/WIG/MIG/MAG WELDING'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
                                         </ListItemButton>
                                     </ListItem>
                                     <ListItem key={'MECHANICAL'} disablePadding>
-                                        <ListItemButton>
-                                            <ListItemText primary={'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'} sx={{marginLeft: '2rem'}}/>
+                                        <ListItemButton component={Link} to="/mechanical-pneumatic-hydraulic-devices-and-systems" onClick={handleDrawerCloseMain}>
+                                            <ListItemText primary={'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
                                         </ListItemButton>
                                     </ListItem>
                                 </List>
                             </AccordionDetails>
                         </Accordion>
                         <ListItem key={'ContactUs'} disablePadding>
-                            <ListItemButton>
+                            <ListItemButton component={Link} to="/contact-us" onClick={handleDrawerCloseMain}>
                                 <ListItemText primary={'CONTACT US'} sx={{marginLeft: '1rem'}}/>
                             </ListItemButton>
                         </ListItem>
@@ -319,8 +392,8 @@ export const AppHeader = () => {
                         <ListItemText
                             primary={'Contact Info'}
                             primaryTypographyProps={{
-                                fontSize: '1.25rem', // Adjust the font size as needed
-                                fontWeight: 'bold',  // Optionally, adjust the font weight
+                                fontSize: '1.25rem',
+                                fontWeight: 'bold',
                             }}/>
                     </ListItem>
                 </DrawerHeader>

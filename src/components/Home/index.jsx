@@ -8,7 +8,6 @@ export const Home = () => {
             <Box
                 sx={{
                     mt: 10,
-                    // px: 2,
                     minHeight: '90vh', // Set the Box to take the full viewport height
                     display: 'flex',
                     alignItems: 'center', // Center vertically
