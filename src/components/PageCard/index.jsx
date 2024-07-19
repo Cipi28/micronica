@@ -3,22 +3,27 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {CardActionArea, useMediaQuery} from '@mui/material';
+import {CardActionArea} from '@mui/material';
 import Box from "@mui/material/Box";
+import {Link} from "react-router-dom";
 
-export default function PageCard({title, image}) {
+export default function PageCard({title, image, link}) {
 
     return (
-        <Card sx={{
-            padding: 0,
-            maxWidth: 430,
-            maxHeight: 430,
-            '@media (max-width:900px)': {
-                maxWidth: 250,
-                maxHeight: 250,
-            },
-            display: 'flex', flexDirection: 'column', height: '100%'
-        }}>
+        <Card
+            component={Link} to={link}
+            // onClick={() => window.location.href = '/services'}
+            sx={{
+                padding: 0,
+                maxWidth: 430,
+                maxHeight: 430,
+                '@media (max-width:900px)': {
+                    maxWidth: 250,
+                    maxHeight: 250,
+                },
+                display: 'flex', flexDirection: 'column', height: '100%',
+                textDecoration: 'none',
+            }}>
             <CardActionArea sx={{flex: 1, display: 'flex', flexDirection: 'column'}}>
                 <CardMedia
                     component="img"
