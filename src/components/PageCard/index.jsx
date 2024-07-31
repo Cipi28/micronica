@@ -15,8 +15,8 @@ export default function PageCard({title, image, link}) {
             // onClick={() => window.location.href = '/services'}
             sx={{
                 padding: 0,
-                maxWidth: 430,
-                maxHeight: 430,
+                maxWidth: 425,
+                maxHeight: 425,
                 '@media (max-width:900px)': {
                     maxWidth: 250,
                     maxHeight: 250,

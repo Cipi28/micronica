@@ -7,8 +7,8 @@ export const Home = () => {
         <>
             <Box
                 sx={{
-                    mt: 10,
-                    height: '90vh',
+                    mt: 12,
+                    height: '85vh',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -22,6 +22,7 @@ export const Home = () => {
                         '@media (min-width:600px)': {
                             maxWidth: '80%',
                         },
+                        maxWidth: '95%',
                     }}
                 >
                     {/* Row 1 */}

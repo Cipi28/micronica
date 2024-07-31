@@ -11,7 +11,7 @@ export const CustomImageList = ({itemData}) => {
     const getColumns = () => {
         if (isSmallScreen) return 1;
         if (isMediumScreen) return 2;
-        return 3;
+        return 6;
     };
 
     const [open, setOpen] = useState(false);
@@ -39,7 +39,7 @@ export const CustomImageList = ({itemData}) => {
                 <ImageList
                     sx={{
                         width: '70%',
-                        height: 600,
+                        height: 450,
                         boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.2)', // Depth shadow
                         p: 2, // Optional padding to prevent shadow clipping
                         overflowY: 'auto',
