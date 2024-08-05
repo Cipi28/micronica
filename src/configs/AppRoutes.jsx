@@ -13,16 +13,16 @@ import {DevAndSystems} from "../components/DevAndSystems/index.jsx";
 export const AppRoutes = () => {
     return (
         <Routes>
-            <Route path={"/"} element={<App/>}>
-                <Route path={"/"} element={<Home/>}/>
-                <Route path={"/about-us"} element={<AboutUs/>}/>
-                <Route path={"/contact-us"} element={<ContactUs/>}/>
-                <Route path={"/cnc-machining"} element={<CNCMach/>}/>
-                <Route path={"/3d-printing"} element={<ThreeDPrinting/>}/>
-                <Route path={"/injection-of-plastic-parts"} element={<InjectionPlastic/>}/>
-                <Route path={"/laser-engraving"} element={<LaserEngraving/>}/>
-                <Route path={"/tig-wig-mig-mag-welding"} element={<Weldings/>}/>
-                <Route path={"/mechanical-pneumatic-hydraulic-devices-and-systems"} element={<DevAndSystems/>}/>
+            <Route path={"/micronica"} element={<App/>}>
+                <Route path={"/micronica"} element={<Home/>}/>
+                <Route path={"/micronica/about-us"} element={<AboutUs/>}/>
+                <Route path={"/micronica/contact-us"} element={<ContactUs/>}/>
+                <Route path={"/micronica/cnc-machining"} element={<CNCMach/>}/>
+                <Route path={"/micronica/3d-printing"} element={<ThreeDPrinting/>}/>
+                <Route path={"/micronica/injection-of-plastic-parts"} element={<InjectionPlastic/>}/>
+                <Route path={"/micronica/laser-engraving"} element={<LaserEngraving/>}/>
+                <Route path={"/micronica/tig-wig-mig-mag-welding"} element={<Weldings/>}/>
+                <Route path={"/micronica/mechanical-pneumatic-hydraulic-devices-and-systems"} element={<DevAndSystems/>}/>
             </Route>
         </Routes>
     );
