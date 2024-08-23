@@ -11,18 +11,19 @@ import {Weldings} from "../components/Weldings/index.jsx";
 import {DevAndSystems} from "../components/DevAndSystems/index.jsx";
 
 export const AppRoutes = () => {
+    console.log("FFFF", import.meta.env.BASE_URL);
     return (
         <Routes>
-            <Route path={"/micronica"} element={<App/>}>
-                <Route path={"/micronica"} element={<Home/>}/>
-                <Route path={"/micronica/about-us"} element={<AboutUs/>}/>
-                <Route path={"/micronica/contact-us"} element={<ContactUs/>}/>
-                <Route path={"/micronica/cnc-machining"} element={<CNCMach/>}/>
-                <Route path={"/micronica/3d-printing"} element={<ThreeDPrinting/>}/>
-                <Route path={"/micronica/injection-of-plastic-parts"} element={<InjectionPlastic/>}/>
-                <Route path={"/micronica/laser-engraving"} element={<LaserEngraving/>}/>
-                <Route path={"/micronica/tig-wig-mig-mag-welding"} element={<Weldings/>}/>
-                <Route path={"/micronica/mechanical-pneumatic-hydraulic-devices-and-systems"} element={<DevAndSystems/>}/>
+            <Route path={import.meta.env.BASE_URL} element={<App/>}>
+                <Route path={import.meta.env.BASE_URL} element={<Home/>}/>
+                <Route path={`${import.meta.env.BASE_URL}/about-us`} element={<AboutUs/>}/>
+                <Route path={`${import.meta.env.BASE_URL}/contact-us`} element={<ContactUs/>}/>
+                <Route path={`${import.meta.env.BASE_URL}/cnc-machining`} element={<CNCMach/>}/>
+                <Route path={`${import.meta.env.BASE_URL}/3d-printing`} element={<ThreeDPrinting/>}/>
+                <Route path={`${import.meta.env.BASE_URL}/injection-of-plastic-parts`} element={<InjectionPlastic/>}/>
+                <Route path={`${import.meta.env.BASE_URL}/laser-engraving`} element={<LaserEngraving/>}/>
+                <Route path={`${import.meta.env.BASE_URL}/tig-wig-mig-mag-welding`} element={<Weldings/>}/>
+                <Route path={`${import.meta.env.BASE_URL}/mechanical-pneumatic-hydraulic-devices-and-systems`} element={<DevAndSystems/>}/>
             </Route>
         </Routes>
     );

@@ -72,7 +72,7 @@ export const AppHeader = () => {
                         <Typography
                             variant="h6"
                             noWrap
-                            component={Link} to="/"
+                            component={Link} to={`${import.meta.env.BASE_URL}`}
                             sx={{
                                 mr: 2,
                                 display: {xs: 'none', md: 'flex'},
@@ -101,7 +101,7 @@ export const AppHeader = () => {
                         <Typography
                             variant="h5"
                             noWrap
-                            component={Link} to="/"
+                            component={Link} to={`${import.meta.env.BASE_URL}`}
                             sx={{
                                 mr: 2,
                                 display: {xs: 'flex', md: 'none'},
@@ -121,7 +121,7 @@ export const AppHeader = () => {
                                 sx={{my: 2, color: 'white', display: 'block'}}
                                 onClick={() => {
                                 }}
-                                component={Link} to="/about-us"
+                                component={Link} to={`${import.meta.env.BASE_URL}about-us`}
                             >
                                 ABOUT US
                             </Button>
@@ -146,7 +146,7 @@ export const AppHeader = () => {
                             >
                                 <MenuItem
                                     sx={{fontSize: '0.75rem'}}
-                                    component={Link} to="/cnc-machining"
+                                    component={Link} to={`${import.meta.env.BASE_URL}cnc-machining`}
                                     onClick={handleOffHover}
                                 >
                                     CNC MACHINING
@@ -154,7 +154,7 @@ export const AppHeader = () => {
                                 <Divider/>
                                 <MenuItem
                                     sx={{fontSize: '0.75rem'}}
-                                    component={Link} to="/3d-printing"
+                                    component={Link} to={`${import.meta.env.BASE_URL}3d-printing`}
                                     onClick={handleOffHover}
                                 >
                                     3D PRINTING
@@ -162,7 +162,7 @@ export const AppHeader = () => {
                                 <Divider/>
                                 <MenuItem
                                     sx={{fontSize: '0.75rem'}}
-                                    component={Link} to="/injection-of-plastic-parts"
+                                    component={Link} to={`${import.meta.env.BASE_URL}injection-of-plastic-parts`}
                                     onClick={handleOffHover}
                                 >
                                     INJECTION OF PLASTIC PARTS
@@ -170,7 +170,7 @@ export const AppHeader = () => {
                                 <Divider/>
                                 <MenuItem
                                     sx={{fontSize: '0.75rem'}}
-                                    component={Link} to="/laser-engraving"
+                                    component={Link} to={`${import.meta.env.BASE_URL}laser-engraving`}
                                     onClick={handleOffHover}
                                 >
                                     LASER ENGRAVING
@@ -178,7 +178,7 @@ export const AppHeader = () => {
                                 <Divider/>
                                 <MenuItem
                                     sx={{fontSize: '0.75rem'}}
-                                    component={Link} to="/tig-wig-mig-mag-welding"
+                                    component={Link} to={`${import.meta.env.BASE_URL}tig-wig-mig-mag-welding`}
                                     onClick={handleOffHover}
                                 >
                                     IG/WIG/MIG/MAG WELDING
@@ -186,8 +186,7 @@ export const AppHeader = () => {
                                 <Divider/>
                                 <MenuItem
                                     sx={{fontSize: '0.75rem'}}
-                                    component={Link} to="/mechanical-pneumatic-hydraulic-devices-and-systems"
-                                    onClick={handleOffHover}
+                                    component={Link} to={`${import.meta.env.BASE_URL}mechanical-pneumatic-hydraulic-devices-and-systems`}                                    onClick={handleOffHover}
                                 >
                                     MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS
                                 </MenuItem>
@@ -197,7 +196,7 @@ export const AppHeader = () => {
                                 sx={{my: 2, color: 'white', display: 'block'}}
                                 onClick={() => {
                                 }}
-                                component={Link} to="/contact-us"
+                                component={Link} to={`${import.meta.env.BASE_URL}contact-us`}
                             >
                                 CONTACT US
                             </Button>
