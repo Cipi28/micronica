@@ -11,13 +11,32 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MoreIcon from "@mui/icons-material/MoreVert";
-import {Accordion, AccordionDetails, AccordionSummary, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {Accordion, AccordionDetails, AccordionSummary, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import {styled, useTheme} from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {Link} from "react-router-dom";
+import { Facebook, LinkedIn, Instagram, Pinterest, Email, Room, Phone  } from '@mui/icons-material'; // Importing necessary icons
+
+import {
+    CloseButton,
+    Flex,
+    Icon,
+    useColorModeValue,
+    Text,
+    Drawer,
+    DrawerContent,
+} from '@chakra-ui/react'
+import {
+    FiHome,
+    FiTrendingUp,
+    FiCompass,
+    FiStar,
+    FiSettings,
+    FiMenu,
+} from 'react-icons/fi'
 
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
@@ -34,8 +53,6 @@ const DrawerHeaderMain = styled('div')(({theme}) => ({
 }));
 
 export const AppHeader = () => {
-    const [open, setOpen] = React.useState(false);
-    const [openMain, setOpenMain] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const openMenu = Boolean(anchorEl);
     const theme = useTheme();
@@ -47,25 +64,58 @@ export const AppHeader = () => {
         setAnchorEl(null);
     };
 
-    const handleDrawerOpenMain = () => {
-        setOpenMain(true);
-    };
+    const SidebarContent = () => {
+        return (
+            <Box
+                borderRight="1px"
+                w={{ base: 'full', md: 60 }}
+                pos="fixed"
+                h="full">
+                <Box sx={{ flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 20, marginX:2 }}>
+                    {/* Container for Social Media Icons */}
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                            <Facebook fontSize="inherit" />
+                        </IconButton>
+                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                            <LinkedIn fontSize="inherit" />
+                        </IconButton>
+                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                            <Instagram fontSize="inherit" />
+                        </IconButton>
+                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                            <Pinterest fontSize="inherit" />
+                        </IconButton>
+                        <Divider orientation="horizontal" sx={{ width: '100%', backgroundColor: 'white', my: 1 }} />
+                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                            <Email fontSize="inherit" />
+                        </IconButton>
+                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                            <Room fontSize="inherit" />
+                        </IconButton>
+                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                            <Phone fontSize="inherit" />
+                        </IconButton>
+                    </Box>
 
-    const handleDrawerCloseMain = () => {
-        setOpenMain(false);
-    };
-
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
+                    {/* Vertical Divider */}
+                    {/*<Divider orientation="vertical" flexItem sx={{ height: 'auto', backgroundColor: 'white', mx: 1 }} />*/}
+                </Box>
+            </Box>
+        )
+    }
 
 
     return (
         <Box>
+            <Drawer
+                isOpen
+                placement="left"
+                size="xs">
+                <DrawerContent>
+                    <SidebarContent />
+                </DrawerContent>
+            </Drawer>
             <AppBar position="fixed">
                 <Container maxWidth="full">
                     <Toolbar disableGutters>
@@ -87,16 +137,6 @@ export const AppHeader = () => {
                         </Typography>
 
                         <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleDrawerOpenMain}
-                                color="inherit"
-                            >
-                                <MenuIcon/>
-                            </IconButton>
                         </Box>
                         <Typography
                             variant="h5"
@@ -201,264 +241,39 @@ export const AppHeader = () => {
                                 CONTACT US
                             </Button>
                         </Box>
-
-                        <Box sx={{flexGrow: 0, display: {xs: 'none', md: 'flex'}}}>
-                            <Tooltip title="Open settings">
-                                <IconButton
-                                    onClick={handleDrawerOpen}
-                                    sx={{p: 0}} size="large"
-                                    aria-label="show more" aria-haspopup="true" color="inherit">
-                                    <MoreIcon/>
-                                </IconButton>
-                            </Tooltip>
+                        <Box sx={{ flexGrow: 0,
+                            display: {xs: 'none', md: 'flex'},
+                            gap: 3,
+                            '@media (max-width:1100px)': {
+                                gap: 0,
+                            },
+                        }}>
+                            <IconButton color="inherit" sx={{ fontSize: 40, '@media (max-width:1100px)': {fontSize: 28}, }}>
+                                <Facebook fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 40, '@media (max-width:1100px)': {fontSize: 28}, }}>
+                                <LinkedIn fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 40, '@media (max-width:1100px)': {fontSize: 28}, }}>
+                                <Instagram fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 40, '@media (max-width:1100px)': {fontSize: 28}, }}>
+                                <Pinterest fontSize="inherit" />
+                            </IconButton>
+                            <Divider orientation="vertical" flexItem sx={{ height: 58, backgroundColor: 'white' }} />
+                            <IconButton color="inherit" sx={{ fontSize: 40, '@media (max-width:1100px)': {fontSize: 28}, }}>
+                                <Email fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 40, '@media (max-width:1100px)': {fontSize: 28}, }}>
+                                <Room fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 40, '@media (max-width:1100px)': {fontSize: 28}, }}>
+                                <Phone fontSize="inherit" />
+                            </IconButton>
                         </Box>
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Drawer
-                sx={{
-                    width: '20rem',
-                    flexShrink: 0,
-                    '& .MuiDrawer-paper': {
-                        width: '20rem',
-                        boxSizing: 'border-box',
-                        height: '100hv',
-                        overflow: 'auto',
-                    },
-                }}
-                variant="persistent"
-                anchor="left"
-                open={openMain}
-            >
-                <DrawerHeaderMain>
-                    <List sx={{width: '100%'}}>
-                        <ListItem key={'AboutUs'} disablePadding>
-                            <ListItemButton component={Link} to="/about-us" onClick={handleDrawerCloseMain}>
-                                <ListItemText primary={'ABOUT US'} sx={{marginLeft: '1rem'}}/>
-                            </ListItemButton>
-                            <IconButton onClick={handleDrawerCloseMain}
-                                        sx={{
-                                            justifyContent: 'flex-end',
-                                            marginRight: '1rem',
-                                        }}
-                            >
-                                <ChevronLeftIcon/>
-                            </IconButton>
-                        </ListItem>
-                        <Accordion
-                            sx={{
-                                marginTop: 'none',
-                                boxShadow: 'none',
-                                border: 'none',
-                                '&:before': {
-                                    display: 'none',
-                                },
-                            }}
-                        >
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon/>}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
-                            >
-                                <Typography sx={{marginLeft: '1rem'}}>OUR SERVICES</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails sx={{padding: 0}}>
-                                <List sx={{padding: 0}}>
-                                    <ListItem key={'CNC'} disablePadding>
-                                        <ListItemButton component={Link} to="/cnc-machining" onClick={handleDrawerCloseMain}>
-                                            <ListItemText primary={'CNC MACHINING'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
-                                        </ListItemButton>
-                                    </ListItem>
-                                    <ListItem key={'3D'} disablePadding>
-                                        <ListItemButton component={Link} to="/3d-printing" onClick={handleDrawerCloseMain}>
-                                            <ListItemText primary={'3D PRINTING'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
-                                        </ListItemButton>
-                                    </ListItem>
-                                    <ListItem key={'INJECTION'} disablePadding>
-                                        <ListItemButton component={Link} to="/injection-of-plastic-parts" onClick={handleDrawerCloseMain}>
-                                            <ListItemText primary={'INJECTION OF PLASTIC PARTS'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
-                                        </ListItemButton>
-                                    </ListItem>
-                                    <ListItem key={'LASER'} disablePadding>
-                                        <ListItemButton component={Link} to="/laser-engraving" onClick={handleDrawerCloseMain}>
-                                            <ListItemText primary={'LASER ENGRAVING'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
-                                        </ListItemButton>
-                                    </ListItem>
-                                    <ListItem key={'TIG'} disablePadding>
-                                        <ListItemButton component={Link} to="/tig-wig-mig-mag-welding" onClick={handleDrawerCloseMain}>
-                                            <ListItemText primary={'TIG/WIG/MIG/MAG WELDING'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
-                                        </ListItemButton>
-                                    </ListItem>
-                                    <ListItem key={'MECHANICAL'} disablePadding>
-                                        <ListItemButton component={Link} to="/mechanical-pneumatic-hydraulic-devices-and-systems" onClick={handleDrawerCloseMain}>
-                                            <ListItemText primary={'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'} sx={{marginLeft: '2rem'}} primaryTypographyProps={{fontSize: '0.75rem'}}/>
-                                        </ListItemButton>
-                                    </ListItem>
-                                </List>
-                            </AccordionDetails>
-                        </Accordion>
-                        <ListItem key={'ContactUs'} disablePadding>
-                            <ListItemButton component={Link} to="/contact-us" onClick={handleDrawerCloseMain}>
-                                <ListItemText primary={'CONTACT US'} sx={{marginLeft: '1rem'}}/>
-                            </ListItemButton>
-                        </ListItem>
-                    </List>
-                </DrawerHeaderMain>
-                <Divider/>
-                <List>
-                    <ListItem key={'Address'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Address'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Mail'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Mail'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Phone'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Phone'}/>
-                        </ListItemButton>
-                    </ListItem>
-                </List>
-                <Divider/>
-                <List>
-                    <ListItem key={'Facebook'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Facebook'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Linkedin'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'LinkedIn'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Instagram'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Instagram'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Pinterest'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Pinterest'}/>
-                        </ListItemButton>
-                    </ListItem>
-                </List>
-            </Drawer>
-            <Drawer
-                sx={{
-                    width: '20rem',
-                    flexShrink: 0,
-                    '& .MuiDrawer-paper': {
-                        width: '20rem',
-                    },
-                }}
-                variant="persistent"
-                anchor="right"
-                open={open}
-            >
-                <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
-                    </IconButton>
-                    <ListItem key={'contactInfo'} disablePadding
-                              sx={{
-                                  marginLeft: '1rem',
-                              }}
-                    >
-                        <ListItemText
-                            primary={'Contact Info'}
-                            primaryTypographyProps={{
-                                fontSize: '1.25rem',
-                                fontWeight: 'bold',
-                            }}/>
-                    </ListItem>
-                </DrawerHeader>
-                <Divider/>
-                <List>
-                    <ListItem key={'Address'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Address'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Mail'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Mail'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Phone'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Phone'}/>
-                        </ListItemButton>
-                    </ListItem>
-                </List>
-                <Divider/>
-                <List>
-                    <ListItem key={'Facebook'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Facebook'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Linkedin'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'LinkedIn'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Instagram'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Instagram'}/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key={'Pinterest'} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary={'Pinterest'}/>
-                        </ListItemButton>
-                    </ListItem>
-                </List>
-            </Drawer>
         </Box>
     );
 }
