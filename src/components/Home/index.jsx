@@ -13,7 +13,7 @@ export const Home = () => {
         <>
             <Box
                 sx={{
-                    mt: 12,
+                    // mt: 12,
                     height: '85vh',
                     display: 'flex',
                     alignItems: 'center',
