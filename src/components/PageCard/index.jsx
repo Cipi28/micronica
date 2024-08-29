@@ -20,8 +20,8 @@ export default function PageCard({title, image, link}) {
                 width: '100%',
                 height: '100%',
                 '@media (max-width:900px)': {
-                    maxWidth: 250,
-                    maxHeight: 250,
+                    maxWidth: 230,
+                    maxHeight: 230,
                 },
                 display: 'flex', flexDirection: 'column',
                 textDecoration: 'none',

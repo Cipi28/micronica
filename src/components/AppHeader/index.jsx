@@ -20,24 +20,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {Link} from "react-router-dom";
 import { Facebook, LinkedIn, Instagram, Pinterest, Email, Room, Phone  } from '@mui/icons-material'; // Importing necessary icons
 
-import {
-    CloseButton,
-    Flex,
-    Icon,
-    useColorModeValue,
-    Text,
-    Drawer,
-    DrawerContent,
-} from '@chakra-ui/react'
-import {
-    FiHome,
-    FiTrendingUp,
-    FiCompass,
-    FiStar,
-    FiSettings,
-    FiMenu,
-} from 'react-icons/fi'
-
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
@@ -70,7 +52,7 @@ export const AppHeader = () => {
             <Box
                 borderRight="1px"
                 w={{ base: 'full', md: 60 }}
-                pos="fixed"
+                // pos="fixed"
                 h="full">
                 <Box sx={{ flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 20, marginX:2 }}>
                     {/* Container for Social Media Icons */}
@@ -87,7 +69,7 @@ export const AppHeader = () => {
                         <IconButton color="inherit" sx={{ fontSize: 35 }}>
                             <Pinterest fontSize="inherit" />
                         </IconButton>
-                        <Divider orientation="horizontal" sx={{ width: '100%', backgroundColor: 'white', my: 1 }} />
+                        {/*<Divider orientation="horizontal" sx={{ width: '100%', backgroundColor: 'white', my: 1 }} />*/}
                         <IconButton color="inherit" sx={{ fontSize: 35 }}>
                             <Email fontSize="inherit" />
                         </IconButton>
@@ -100,7 +82,7 @@ export const AppHeader = () => {
                     </Box>
 
                     {/* Vertical Divider */}
-                    {/*<Divider orientation="vertical" flexItem sx={{ height: 'auto', backgroundColor: 'white', mx: 1 }} />*/}
+
                 </Box>
             </Box>
         )
@@ -109,14 +91,14 @@ export const AppHeader = () => {
 
     return (
         <Box>
-            <Drawer
-                isOpen
-                placement="left"
-                size="xs">
-                <DrawerContent>
-                    <SidebarContent />
-                </DrawerContent>
-            </Drawer>
+            {/*<Drawer*/}
+            {/*    isOpen*/}
+            {/*    placement="left"*/}
+            {/*    size="xs">*/}
+            {/*    <DrawerContent>*/}
+            {/*        <SidebarContent />*/}
+            {/*    </DrawerContent>*/}
+            {/*</Drawer>*/}
             <AppBar position="fixed">
                 <Container maxWidth="full">
                     <Toolbar disableGutters>
@@ -137,25 +119,58 @@ export const AppHeader = () => {
                             MICRONICA
                         </Typography>
 
-                        <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
-                        </Box>
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component={Link} to={`${import.meta.env.BASE_URL}`}
+                        <Box
                             sx={{
-                                mr: 2,
-                                display: {xs: 'flex', md: 'none'},
+                                mt: 2,
                                 flexGrow: 1,
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
+                                display: { xs: 'flex', md: 'none' },
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center'
                             }}
                         >
-                            MICRONICA
-                        </Typography>
+                            <Typography
+                                variant="h5"
+                                noWrap
+                                component={Link}
+                                to={`${import.meta.env.BASE_URL}`}
+                                sx={{
+                                    display: { xs: 'flex', md: 'none' },
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                    mb: 1, // Add margin-bottom to space it from the buttons below
+                                }}
+                            >
+                                MICRONICA
+                            </Typography>
+
+                            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                <Button
+                                    sx={{ my: 1, color: 'white', display: 'block' }}
+                                    component={Link}
+                                    to={`${import.meta.env.BASE_URL}about-us`}
+                                >
+                                    ABOUT US
+                                </Button>
+                                <Button
+                                    sx={{ my: 1, color: 'white', display: 'block' }}
+                                    component={Link}
+                                    to={`${import.meta.env.BASE_URL}services`}
+                                >
+                                    OUR SERVICES
+                                </Button>
+                                <Button
+                                    sx={{ my: 1, color: 'white', display: 'block' }}
+                                    component={Link}
+                                    to={`${import.meta.env.BASE_URL}contact-us`}
+                                >
+                                    CONTACT US
+                                </Button>
+                            </Box>
+                        </Box>
                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                             <Button
                                 key='aboutUS'
@@ -275,35 +290,6 @@ export const AppHeader = () => {
                     </Toolbar>
                 </Container>
             </AppBar>
-            {isSmallScreen && (
-                <AppBar position="static" sx={{ top: 'auto', bottom: 0, bgcolor: 'grey', color: 'white', pt:8 }}>
-                    <Container maxWidth="full">
-                        <Toolbar disableGutters>
-                            <Button
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                component={Link}
-                                to={`${import.meta.env.BASE_URL}about-us`}
-                            >
-                                ABOUT US
-                            </Button>
-                            <Button
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                component={Link}
-                                to={`${import.meta.env.BASE_URL}services`}
-                            >
-                                OUR SERVICES
-                            </Button>
-                            <Button
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                component={Link}
-                                to={`${import.meta.env.BASE_URL}contact-us`}
-                            >
-                                CONTACT US
-                            </Button>
-                        </Toolbar>
-                    </Container>
-                </AppBar>
-            )}
         </Box>
     );
 }
