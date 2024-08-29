@@ -57,7 +57,7 @@ export const Home = () => {
             <Box
                 sx={{
                     mt: 10,
-                    height: '100vh',
+                    height: '90vh',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
