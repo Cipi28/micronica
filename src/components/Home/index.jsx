@@ -26,8 +26,7 @@ export const Home = () => {
                 w={{ base: 'full', md: 60 }}
                 // pos="fixed"
                 h="full">
-                <Box sx={{ flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 25, marginLeft:2 }}>
-                    {/* Container for Social Media Icons */}
+                <Box sx={{ flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 15, marginLeft:2 }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <IconButton color="inherit" sx={{ fontSize: 35 }}>
                             <Facebook fontSize="inherit" />
@@ -65,7 +64,7 @@ export const Home = () => {
                         // mt: 10,
                     },
                     '@media (max-width:600px)': {
-                        // ml: 8,
+                        mt: 0,
                         // height: '95vh',
                     },
                 }}
@@ -86,21 +85,21 @@ export const Home = () => {
                         <PageCard
                             title={'CNC MACHINING'}
                             image={cncImage}
-                            link={'/cnc-machining'}
+                            link={'/micronica/cnc-machining'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
                             title={'3D PRINTING'}
                             image={TDprinting}
-                            link={'/3d-printing'}
+                            link={'/micronica/3d-printing'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
                             title={'INJECTION OF PLASTIC PARTS'}
                             image={injection}
-                            link={'/injection-of-plastic-parts'}
+                            link={'/micronica/injection-of-plastic-parts'}
                         />
                     </Grid>
                     {/* Row 2 */}
@@ -108,21 +107,21 @@ export const Home = () => {
                         <PageCard
                             title={'LASER ENGRAVING'}
                             image={laserEng}
-                            link={'/laser-engraving'}
+                            link={'/micronica/laser-engraving'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
                             title={'TIG/WIG/MIG/MAG WELDING'}
                             image={welding}
-                            link={'/tig-wig-mig-mag-welding'}
+                            link={'/micronica/tig-wig-mig-mag-welding'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
                             title={'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'}
                             image={pneumHidr}
-                            link={'/mechanical-pneumatic-hydraulic-devices-and-systems'}
+                            link={'/micronica/mechanical-pneumatic-hydraulic-devices-and-systems'}
                         />
                     </Grid>
                 </Grid>
