@@ -1,9 +1,7 @@
-import {Box, Divider, List, ListItem, Paper} from "@mui/material";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent} from '@mui/lab';
 import {useMediaQuery, useTheme} from '@mui/material';
 import * as React from "react";
+import { Box, Container, Typography, Grid, Paper } from '@mui/material';
+import cncImage from '../../assets/homepage/1_cnc_machining.png';
 
 const events = [
     {
@@ -44,117 +42,53 @@ export const AboutUs = () => {
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
-                mt: 14,
-                mb: 10,
+                alignItems: 'center',
+                minHeight: '100vh',
+                backgroundColor: '#f4f4f9',
+                py: 10,
             }}
         >
             <Container maxWidth="lg">
-                <Typography variant="h4" component="h1" gutterBottom>
-                    About MICRONICA
-                </Typography>
-                <Typography variant="body1" paragraph>
-                    <strong>CNC (Computer Numerical Control)</strong> machining is a method of manufacturing and processing materials that uses numerically controlled machines to perform cutting,
-                    milling, turning, or drilling operations in a precise and efficient manner.
-                </Typography>
-                <Typography variant="body1" paragraph>
-                    Our CNC machining company offers specialized services in metal and plastics machining using advanced CNC technology. We have a team of skilled professionals and a wide range of
-                    state-of-the-art CNC machinery, allowing us to produce complex, detailed, and high-precision parts.
-                </Typography>
-                <Typography variant="body1" paragraph>
-                    Using specialised software, we program CNC machines to perform the necessary machining operations based on 2D or 3D CAD models. This enables us to produce parts with precise
-                    dimensions and shapes, according to our customers' specifications and requirements.
-                </Typography>
-                <Typography
-                    variant="h6"
-                    component="h2"
-                    gutterBottom
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        mt: 4,
-                    }}
-                >
-                    <strong>The benefits of CNC machining include:</strong>
-                </Typography>
-                <List sx={{
-                    listStyleType: 'disc',
-                    pl: 2,
-                    '& .MuiListItem-root': {
-                        display: 'list-item',
-                    },
-                }}>
-                    <ListItem sx={{display: 'list-item', textAlign: 'left', pl: 0}}>
-                        <Typography variant="body1">
-                            Accuracy and consistency: CNC machines are capable of reproducing the exact same machining operation multiple times, ensuring consistent quality and high accuracy of
-                            manufactured parts.
+                <Grid container spacing={5} alignItems="center">
+                    {/* Left Section: Image */}
+                    <Grid item xs={12} md={6}>
+                        <Paper elevation={3} sx={{ borderRadius: '10px', overflow: 'hidden' }}>
+                            <img src={cncImage} alt="Micronica Team" style={{ width: '100%', height: 'auto' }} />
+                        </Paper>
+                    </Grid>
+
+                    {/* Right Section: Text */}
+                    <Grid item xs={12} md={6}>
+                        <Typography
+                            variant="h4"
+                            component="h1"
+                            gutterBottom
+                            sx={{ fontWeight: 'bold', color: '#2c3e50' }}
+                        >
+                            About MICRONICA
                         </Typography>
-                    </ListItem>
-                    <ListItem sx={{display: 'list-item', textAlign: 'left', pl: 0}}>
-                        <Typography variant="body1">
-                            Efficiency and speed: CNC machine programming enables fast execution of machining operations, reducing the time required for manufacturing and delivery.
+                        <Typography
+                            variant="body1"
+                            paragraph
+                            sx={{ fontSize: '1.2rem', color: '#34495e', lineHeight: '1.6' }}
+                        >
+                            The team at Micronica has 20 years of experience in CNC machining and stands for cable
+                            manufacturing companies. Through their professionalism and dedication, our team members provide
+                            high-quality services tailored to the specific needs of each client. Each project is approached
+                            with precision and attention to detail, ensuring results that exceed expectations.
                         </Typography>
-                    </ListItem>
-                    <ListItem sx={{display: 'list-item', textAlign: 'left', pl: 0}}>
-                        <Typography variant="body1">
-                            Flexibility and versatility: CNC technology allows us to work with a wide range of materials, including metals, plastics, wood, or composites. We can also produce a variety
-                            of shapes and sizes, adapting to your needs and requirements.
+                        <Typography
+                            variant="body1"
+                            paragraph
+                            sx={{ fontSize: '1.2rem', color: '#34495e', lineHeight: '1.6' }}
+                        >
+                            Our employees are well-trained specialists with in-depth knowledge of cutting-edge technologies in
+                            the CNC machining and cable stand industry. By working closely with our clients, we manage to
+                            offer innovative and efficient solutions that enhance production processes and support the growth
+                            of their businesses.
                         </Typography>
-                    </ListItem>
-                </List>
-                <Typography variant="h4" component="h1" gutterBottom sx={{mt: 4}}>
-                    OUR EXPERIENCE
-                </Typography>
-                <Divider sx={{mb: 3}}/>
-                {!isMobile ? (
-                    <Timeline position={isMobile ? "right" : "alternate"}>
-                        {events.map((event, index) => (
-                            <TimelineItem key={index}>
-                                <TimelineOppositeContent>
-                                    <Typography variant="body2" color="textSecondary">
-                                        {event.year}
-                                    </Typography>
-                                </TimelineOppositeContent>
-                                <TimelineSeparator>
-                                    <TimelineDot/>
-                                    {index < events.length - 1 && <TimelineConnector/>}
-                                </TimelineSeparator>
-                                <TimelineContent>
-                                    <Paper elevation={3} style={{padding: '6px 16px'}}>
-                                        {/*<Typography variant="body2" color="textSecondary">*/}
-                                        {/*    {event.year}*/}
-                                        {/*</Typography>*/}
-                                        <Typography variant="h6" component="h1">
-                                            {event.title}
-                                        </Typography>
-                                        <Typography>{event.description}</Typography>
-                                    </Paper>
-                                </TimelineContent>
-                            </TimelineItem>
-                        ))}
-                    </Timeline>
-                ) : (
-                    <Timeline position={isMobile ? "right" : "alternate"}>
-                        {events.map((event, index) => (
-                            <TimelineItem key={index}>
-                                <Box display="flex" flexDirection="column" alignItems="flex-start" width="100%">
-                                    <TimelineSeparator>
-                                        <TimelineDot/>
-                                        {index < events.length - 1 && <TimelineConnector/>}
-                                    </TimelineSeparator>
-                                    <Paper elevation={3} style={{padding: '6px 16px', marginTop: 8, marginBottom: 8, width: '100%'}}>
-                                        <Typography variant="body2" color="textSecondary">
-                                            {event.year}
-                                        </Typography>
-                                        <Typography variant="h6" component="h1">
-                                            {event.title}
-                                        </Typography>
-                                        <Typography>{event.description}</Typography>
-                                    </Paper>
-                                </Box>
-                            </TimelineItem>
-                        ))}
-                    </Timeline>
-                )}
+                    </Grid>
+                </Grid>
             </Container>
         </Box>
     );

@@ -64,7 +64,7 @@ export const Home = () => {
                         // mt: 10,
                     },
                     '@media (max-width:600px)': {
-                        mt: 0,
+                        // mt: 0,
                         // height: '95vh',
                     },
                 }}
