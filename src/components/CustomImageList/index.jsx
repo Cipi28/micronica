@@ -9,8 +9,8 @@ export const CustomImageList = ({itemData}) => {
     const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
     const getColumns = () => {
-        if (isSmallScreen) return 1;
-        if (isMediumScreen) return 2;
+        if (isSmallScreen) return 2;
+        if (isMediumScreen) return 3;
         return 6;
     };
 
@@ -38,11 +38,20 @@ export const CustomImageList = ({itemData}) => {
             >
                 <ImageList
                     sx={{
-                        width: '70%',
-                        height: 450,
-                        boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.2)', // Depth shadow
+                        width: '80%',
+                        height: 400,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        borderRadius: '10px',  // Rounded corners for the background box
+                        borderMargin: '5px',
+                        borderColor: 'black',
+                        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',  // Optional: add a soft shadow for depth
                         p: 2, // Optional padding to prevent shadow clipping
                         overflowY: 'auto',
+                        backgroundColor: '#ffffff',
+                        '@media (max-width:600px)': {
+                            height: 300,
+                        },
                     }}
                     cols={getColumns()}
                     variant="woven"

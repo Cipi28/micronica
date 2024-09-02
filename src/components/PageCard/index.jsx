@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
@@ -12,16 +11,15 @@ export default function PageCard({title, image, link}) {
     return (
         <Card
             component={Link} to={link}
-            // onClick={() => window.location.href = '/services'}
             sx={{
                 padding: 0,
-                maxWidth: 425,
-                maxHeight: 425,
+                maxWidth: 380,
+                maxHeight: 380,
                 width: '100%',
                 height: '100%',
                 '@media (max-width:900px)': {
-                    maxWidth: 230,
-                    maxHeight: 230,
+                    maxWidth: 200,
+                    maxHeight: 200,
                 },
                 display: 'flex', flexDirection: 'column',
                 textDecoration: 'none',

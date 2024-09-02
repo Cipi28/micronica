@@ -16,43 +16,12 @@ export const Home = () => {
     return (
         <Box
             sx={{
-                display: 'flex', // Set the container to use flexbox
-                height: '100vh', // Ensure the container takes up the full height of the viewport
-                width: '100%', // Ensure the container takes up the full width of the viewport
+                display: 'flex',
+                height: '100vh',
+                width: '100%',
             }}
         >
-            <Box
-                // borderRight="1px"
-                w={{ base: 'full', md: 60 }}
-                // pos="fixed"
-                h="full">
-                <Box sx={{ flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 15, marginLeft:2 }}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                            <Facebook fontSize="inherit" />
-                        </IconButton>
-                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                            <LinkedIn fontSize="inherit" />
-                        </IconButton>
-                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                            <Instagram fontSize="inherit" />
-                        </IconButton>
-                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                            <Pinterest fontSize="inherit" />
-                        </IconButton>
-                        <Divider orientation="horizontal" sx={{ width: '100%', backgroundColor: 'white', my: 1 }} />
-                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                            <Email fontSize="inherit" />
-                        </IconButton>
-                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                            <Room fontSize="inherit" />
-                        </IconButton>
-                        <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                            <Phone fontSize="inherit" />
-                        </IconButton>
-                    </Box>
-                </Box>
-            </Box>
+
             <Box
                 sx={{
                     mt: 10,
@@ -69,15 +38,46 @@ export const Home = () => {
                     },
                 }}
             >
+                <Box
+                    w={{ base: 'full', md: 60 }}
+                    h="full">
+                    <Box sx={{ flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 15, marginLeft:1, marginRight: 1 }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                                <Facebook fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                                <LinkedIn fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                                <Instagram fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                                <Pinterest fontSize="inherit" />
+                            </IconButton>
+                            <Divider orientation="horizontal" sx={{ width: '100%', backgroundColor: 'white', my: 1 }} />
+                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                                <Email fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                                <Room fontSize="inherit" />
+                            </IconButton>
+                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
+                                <Phone fontSize="inherit" />
+                            </IconButton>
+                        </Box>
+                    </Box>
+                </Box>
                 <Grid
                     container
-                    spacing={2} // Fixed gap between cards
+                    spacing={2}
                     justifyContent="center"
                     sx={{
                         '@media (min-width:600px)': {
                             maxWidth: '80%',
                         },
                         maxWidth: '95%',
+                        marginRight: 1
                     }}
                 >
                     {/* Row 1 */}

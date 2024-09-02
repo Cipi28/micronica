@@ -1,62 +1,97 @@
-import {Box, TextField} from '@mui/material';
+import {Box} from '@mui/material';
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import {CustomImageList} from "../CustomImageList/index.jsx";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import cncImage from '../../assets/homepage/1_cnc_machining.png';
+import TDprinting from '../../assets/homepage/2_3d_printing.png';
+import injection from '../../assets/homepage/3_injection of plastic part.png';
+import laserEng from '../../assets/homepage/4_laser_engraving.png';
+import welding from '../../assets/homepage/5_welding.png';
+import pneumHidr from '../../assets/homepage/6_pneumatic&hydraulic.png';
 
 export const CNCMach = () => {
     return (
-        <>
+        <Box
+            sx={{
+                minHeight: '100vh',
+                backgroundColor: '#f4f4f9',
+            }}>
             <Box
                 sx={{
-                    mt: 10,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: '100vh',
                 }}
             >
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        mt: 12,
-                    }}
-                >
-                    <Typography
-                        gutterBottom
-                        variant="h4"
-                        component="div"
+                <Box>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
                     >
-                        CNC MACHINING
-                    </Typography>
+                        <Typography
+                            variant="h4"
+                            component="h1"
+                            gutterBottom
+                            sx={{fontWeight: 'bold', color: '#2c3e50', fontSize: {xs: '1.7rem', md: '2.125rem'}, textAlign: 'center', mt: {xs: 18, md: 12},}}
+                        >
+                            CNC MACHINING
+                        </Typography>
+                    </Box>
+                    <CustomImageList itemData={itemData}/>
+                    <Container maxWidth="lg" sx={{
+                        marginTop: 4,
+                    }}>
+                        <Typography
+                            variant="body1"
+                            paragraph
+                            sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
+                        >
+                            CNC (Computer Numerical Control) machining is a manufacturing process that uses computers to control tools and machines.
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            paragraph
+                            sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
+                        >
+                            This type of machining allows for the production of complex and precise components used in a variety of industries, from aerospace to automotive.
+                            Due to its automation and accuracy, CNC machining significantly reduces production time and costs.
+                        </Typography>
+                    </Container>
                 </Box>
-                <CustomImageList itemData={itemData}/>
             </Box>
-        </>
+        </Box>
     );
 };
 
 const itemData = [
     {
-        img: 'https://micronica.webtm.ro/wp-content/uploads/2023/07/3D.jpg',
+        img: cncImage,
         title: 'Breakfast',
     },
     {
-        img: 'https://micronica.webtm.ro/wp-content/uploads/2023/07/prelucrare-cnc-scaled.jpg',
+        img: TDprinting,
         title: 'Burger',
     },
     {
-        img: 'https://micronica.webtm.ro/wp-content/uploads/2023/03/cnc-laser-cutting-of-metal-modern-industrial-tech-2021-08-26-23-00-56-utc-1.jpg',
+        img: injection,
         title: 'Camera',
     },
     {
-        img: 'https://micronica.webtm.ro/wp-content/uploads/2023/07/micronica-plastic-injection-2.jpg',
+        img: laserEng,
         title: 'Coffee',
     },
     {
-        img: 'https://micronica.webtm.ro/wp-content/uploads/2023/03/tig-welding-professional-at-work-2023-02-22-18-55-29-utc-1.jpg',
+        img: welding,
         title: 'Hats',
+    },
+    {
+        img: pneumHidr,
+        title: 'Honey',
     },
     {
         img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',

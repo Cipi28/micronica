@@ -9,25 +9,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {Divider} from "@mui/material";
-import {styled} from '@mui/material/styles';
 import {Link} from "react-router-dom";
-import { Facebook, LinkedIn, Instagram, Pinterest, Email, Room, Phone  } from '@mui/icons-material'; // Importing necessary icons
+import {Facebook, LinkedIn, Instagram, Pinterest, Email, Room, Phone} from '@mui/icons-material';
 
 import './AppHeader.css';
-
-const DrawerHeader = styled('div')(({theme}) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-start',
-}));
-
-const DrawerHeaderMain = styled('div')(({theme}) => ({
-    display: 'flex',
-    alignItems: 'center',
-    ...theme.mixins.toolbar,
-}));
 
 export const AppHeader = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -66,7 +51,7 @@ export const AppHeader = () => {
                             sx={{
                                 mt: 2,
                                 flexGrow: 1,
-                                display: { xs: 'flex', md: 'none' },
+                                display: {xs: 'flex', md: 'none'},
                                 flexDirection: 'column',
                                 justifyContent: 'center',
                                 alignItems: 'center'
@@ -78,28 +63,28 @@ export const AppHeader = () => {
                                 component={Link}
                                 to={`${import.meta.env.BASE_URL}`}
                                 sx={{
-                                    display: { xs: 'flex', md: 'none' },
+                                    display: {xs: 'flex', md: 'none'},
                                     fontFamily: 'monospace',
                                     fontWeight: 700,
                                     letterSpacing: '.3rem',
                                     color: 'inherit',
                                     textDecoration: 'none',
-                                    mb: 1, // Add margin-bottom to space it from the buttons below
+                                    mb: 1,
                                 }}
                             >
                                 MICRONICA
                             </Typography>
 
-                            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                            <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                                 <Button
                                     sx={{
                                         my: 2,
                                         color: 'white',
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif', // Custom font
-                                        fontSize: '1rem', // Font size
-                                        backgroundColor: 'transparent', // Initial background color
-                                        transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.8rem',
+                                        backgroundColor: 'transparent',
+                                        transition: 'background-color 0.3s ease, color 0.3s ease',
                                         '&:hover': {
                                             color: '#0080FF',
                                         },
@@ -115,7 +100,7 @@ export const AppHeader = () => {
                                         color: 'white',
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '1rem',  // Adjust the font size if needed
+                                        fontSize: '0.8rem',  // Adjust the font size if needed
                                         backgroundColor: 'transparent', // Initial background color
                                         transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                         '&:hover': {
@@ -133,7 +118,7 @@ export const AppHeader = () => {
                                         color: 'white',
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '1rem',  // Adjust the font size if needed
+                                        fontSize: '0.8rem',  // Adjust the font size if needed
                                         backgroundColor: 'transparent', // Initial background color
                                         transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                         '&:hover': {
@@ -260,7 +245,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/tig-wig-mig-mag-welding`}
                                     onClick={handleOffHover}
                                 >
-                                    IG/WIG/MIG/MAG WELDING
+                                    TIG/WIG/MIG/MAG WELDING
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -269,7 +254,7 @@ export const AppHeader = () => {
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
                                         fontSize: '0.75rem',  // Adjust the font size if needed
                                     }}
-                                    component={Link} to={`/micronica/mechanical-pneumatic-hydraulic-devices-and-systems`}                                    onClick={handleOffHover}
+                                    component={Link} to={`/micronica/mechanical-pneumatic-hydraulic-devices-and-systems`} onClick={handleOffHover}
                                 >
                                     MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS
                                 </MenuItem>
@@ -295,62 +280,77 @@ export const AppHeader = () => {
                                 CONTACT US
                             </Button>
                         </Box>
-                        <Box sx={{ flexGrow: 0,
+                        <Box sx={{
+                            flexGrow: 0,
                             display: {xs: 'none', md: 'flex'},
                             gap: 3,
                             '@media (max-width:1150px)': {
                                 gap: 0,
                             },
                         }}>
-                            <IconButton color="inherit" sx={{ fontSize: 38, '@media (max-width:1150px)': {fontSize: 28},
+                            <IconButton color="inherit" sx={{
+                                fontSize: 38, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
                                     color: '#0080FF',
-                                },}}>
-                                <Facebook fontSize="inherit" />
+                                },
+                            }}>
+                                <Facebook fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                            <IconButton color="inherit" sx={{
+                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
                                     color: '#0080FF',
-                                },}}>
-                                <LinkedIn fontSize="inherit" />
+                                },
+                            }}>
+                                <LinkedIn fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                            <IconButton color="inherit" sx={{
+                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
                                     color: '#0080FF',
-                                },}}>
-                                <Instagram fontSize="inherit" />
+                                },
+                            }}>
+                                <Instagram fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                            <IconButton color="inherit" sx={{
+                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
                                     color: '#0080FF',
-                                },}}>
-                                <Pinterest fontSize="inherit" />
+                                },
+                            }}>
+                                <Pinterest fontSize="inherit"/>
                             </IconButton>
-                            <Divider orientation="vertical" flexItem sx={{ height: 58, backgroundColor: 'white' }} />
-                            <IconButton color="inherit" sx={{ fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                            <Divider orientation="vertical" flexItem sx={{height: 58, backgroundColor: 'white'}}/>
+                            <IconButton color="inherit" sx={{
+                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
                                     color: '#0080FF',
-                                },}}>
-                                <Email fontSize="inherit" />
+                                },
+                            }}>
+                                <Email fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                            <IconButton color="inherit" sx={{
+                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
                                     color: '#0080FF',
-                                },}}>
-                                <Room fontSize="inherit" />
+                                },
+                            }}>
+                                <Room fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                            <IconButton color="inherit" sx={{
+                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
                                     color: '#0080FF',
-                                },}}>
-                                <Phone fontSize="inherit" />
+                                },
+                            }}>
+                                <Phone fontSize="inherit"/>
                             </IconButton>
                         </Box>
                     </Toolbar>
