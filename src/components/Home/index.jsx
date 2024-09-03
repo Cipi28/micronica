@@ -12,6 +12,7 @@ import {Email, Facebook, Instagram, LinkedIn, Phone, Room} from "@mui/icons-mate
 import {Divider} from "@mui/material";
 import * as React from "react";
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
+import {openFacebookProfile, openInstagramProfile} from "../../services/redirectServices.jsx";
 
 export const Home = () => {
     const {isRom, setISRom} = useLanguage();
@@ -45,13 +46,17 @@ export const Home = () => {
                     h="full">
                     <Box sx={{flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 15, marginLeft: 1, marginRight: 1}}>
                         <Box sx={{display: 'flex', flexDirection: 'column', gap: 2}}>
-                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                            <IconButton
+                                onClick={() => openFacebookProfile()}
+                                color="inherit" sx={{fontSize: 35}}>
                                 <Facebook fontSize="inherit"/>
                             </IconButton>
                             <IconButton color="inherit" sx={{fontSize: 35}}>
                                 <LinkedIn fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                            <IconButton
+                                onClick={() => openInstagramProfile()}
+                                color="inherit" sx={{fontSize: 35}}>
                                 <Instagram fontSize="inherit"/>
                             </IconButton>
                             <Divider orientation="horizontal" sx={{width: '100%', backgroundColor: 'white', my: 1}}/>

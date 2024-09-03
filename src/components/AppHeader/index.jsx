@@ -13,6 +13,7 @@ import {Link} from "react-router-dom";
 import {Facebook, LinkedIn, Instagram, Email, Room, Phone} from '@mui/icons-material';
 import Switch from '@mui/material/Switch';
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
+import {openFacebookProfile, openInstagramProfile} from "../../services/redirectServices.jsx";
 
 import './AppHeader.css';
 
@@ -26,26 +27,6 @@ export const AppHeader = () => {
     };
     const handleOffHover = () => {
         setAnchorEl(null);
-    };
-
-    const openFacebookProfile = () => {
-        const facebookProfileUrl = 'https://www.facebook.com/share/Akd4JNZg4mohpx3E/?mibextid=LQQJ4d'; // Replace with your actual Facebook profile URL
-
-        // Detect if the user is on a mobile device
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-        if (isMobile) {
-            // Attempt to open the Facebook app using a deep link
-            window.location.href = 'fb://profile/yourprofile'; // Replace 'yourprofile' with your actual profile ID or username
-
-            // Fallback to the web URL after a short delay
-            setTimeout(() => {
-                window.open(facebookProfileUrl, '_blank');
-            }, 500);
-        } else {
-            // For desktop, open in a new tab
-            window.open(facebookProfileUrl, '_blank');
-        }
     };
 
     return (
@@ -332,7 +313,9 @@ export const AppHeader = () => {
                             }}>
                                 <LinkedIn fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{
+                            <IconButton
+                                onClick={() => openInstagramProfile()}
+                                color="inherit" sx={{
                                 fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
