@@ -1,7 +1,8 @@
 import {Outlet} from "react-router-dom";
 import {AppHeader} from "./components/AppHeader";
 import {ThemeProvider, createTheme} from "@mui/material";
-import { ChakraProvider } from '@chakra-ui/react'
+import {ChakraProvider} from '@chakra-ui/react'
+import {LanguageProvider} from './configs/LanguageProvider.jsx';
 
 import './App.css'
 
@@ -21,8 +22,10 @@ function App() {
     return (
         <ChakraProvider>
             <ThemeProvider theme={theme}>
-                <AppHeader/>
-                <Outlet/>
+                <LanguageProvider>
+                    <AppHeader/>
+                    <Outlet/>
+                </LanguageProvider>
             </ThemeProvider>
         </ChakraProvider>
     )

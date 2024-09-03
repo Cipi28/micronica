@@ -9,8 +9,10 @@ import injection from '../../assets/homepage/3_injection of plastic part.png';
 import laserEng from '../../assets/homepage/4_laser_engraving.png';
 import welding from '../../assets/homepage/5_welding.png';
 import pneumHidr from '../../assets/homepage/6_pneumatic&hydraulic.png';
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
 
 export const LaserEngraving = () => {
+    const {isRom, setISRom} = useLanguage();
     return (
         <Box
             sx={{
@@ -39,7 +41,7 @@ export const LaserEngraving = () => {
                             gutterBottom
                             sx={{fontWeight: 'bold', color: '#2c3e50', fontSize: {xs: '1.7rem', md: '2.125rem'}, textAlign: 'center', mt: {xs: 18, md: 12},}}
                         >
-                            LASER ENGRAVING
+                            {isRom ? 'GRAVAREA LASER' : 'LASER ENGRAVING'}
                         </Typography>
                     </Box>
                     <CustomImageList itemData={itemData}/>
@@ -51,15 +53,19 @@ export const LaserEngraving = () => {
                             paragraph
                             sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
                         >
-                            Laser engraving is a precise marking process where a laser beam is used to remove layers of material from the surface of an object.
+                            {isRom ? 'Gravarea cu laser este un proces de marcare precisă în care un fascicul laser este utilizat ' +
+                                'pentru a îndepărta straturi de material de pe suprafața unui obiect. '
+                                : 'Laser engraving is a precise marking process where a laser beam is used to remove layers of material from the surface of an object.'}
                         </Typography>
                         <Typography
                             variant="body1"
                             paragraph
                             sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
                         >
-                            This technology is widely used in industries such as jewelry, electronics, and advertising for personalizing and decorating products.
-                            Due to its precision and flexibility, laser engraving allows for the creation of detailed and durable designs on a variety of materials.
+                            {isRom ? 'Această tehnologie este folosită pe scară largă în industrii precum cea de bijuterii, electronică și publicitate pentru personalizarea și decorarea ' +
+                                'produselor. Datorită preciziei și flexibilității sale, gravarea cu laser permite crearea de modele detaliate și durabile pe o varietate de materiale.'
+                                : 'This technology is widely used in industries such as jewelry, electronics, and advertising for personalizing and decorating products.\n' +
+                                ' Due to its precision and flexibility, laser engraving allows for the creation of detailed and durable designs on a variety of materials.'}
                         </Typography>
                     </Container>
                 </Box>

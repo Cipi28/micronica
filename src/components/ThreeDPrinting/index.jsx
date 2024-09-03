@@ -9,8 +9,10 @@ import injection from '../../assets/homepage/3_injection of plastic part.png';
 import laserEng from '../../assets/homepage/4_laser_engraving.png';
 import welding from '../../assets/homepage/5_welding.png';
 import pneumHidr from '../../assets/homepage/6_pneumatic&hydraulic.png';
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
 
 export const ThreeDPrinting = () => {
+    const {isRom, setISRom} = useLanguage();
     return (
         <Box
             sx={{
@@ -39,7 +41,7 @@ export const ThreeDPrinting = () => {
                             gutterBottom
                             sx={{fontWeight: 'bold', color: '#2c3e50', fontSize: {xs: '1.7rem', md: '2.125rem'}, textAlign: 'center', mt: {xs: 18, md: 12},}}
                         >
-                            3D PRINTING
+                            {isRom ? 'IMPRIMARE 3D PE PUDRĂ, RĂȘINA ȘI FILAMENT' : '3D PRINTING ON POWDER, RESIN & FILAMENT'}
                         </Typography>
                     </Box>
                     <CustomImageList itemData={itemData}/>
@@ -51,15 +53,20 @@ export const ThreeDPrinting = () => {
                             paragraph
                             sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
                         >
-                            3D printing is an additive manufacturing technology that creates three-dimensional objects by depositing material layer by layer.
+                            {isRom ? 'Imprimarea 3D este o tehnologie de fabricație aditivă care creează obiecte tridimensionale prin depunerea strat cu strat a materialului. '
+                                : '3D printing is an additive manufacturing technology that creates three-dimensional objects by depositing material layer by layer.'}
                         </Typography>
                         <Typography
                             variant="body1"
                             paragraph
                             sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
                         >
-                            This technology is used in a wide range of industries, from medical to construction, to produce rapid prototypes and custom parts. Due to its flexibility and efficiency, 3D
-                            printing enables innovation and significantly reduces production costs and time.
+                            {isRom ? 'Această tehnologie este utilizată într-o gamă largă de industrii, de la medicală ' +
+                                'la construcții, pentru a produce prototipuri rapide și piese personalizate. Datorită flexibilității ' +
+                                'și eficienței sale, imprimarea 3D permite inovația și reduce semnificativ costurile și timpul de producție.'
+                                : 'This technology is used in a wide range of industries, from medical to construction, ' +
+                                'to produce rapid prototypes and custom parts. Due to its flexibility and efficiency, 3D\n' +
+                                'printing enables innovation and significantly reduces production costs and time.'}
                         </Typography>
                     </Container>
                 </Box>

@@ -1,10 +1,11 @@
-import {Box, Container, Typography, Grid, Paper, TextField, Button, Divider} from '@mui/material';
+import {Box, Container, Typography, Grid, Paper, TextField, Button} from '@mui/material';
 import IconButton from "@mui/material/IconButton";
 import {Email, Phone, Room} from "@mui/icons-material";
 import * as React from "react";
-
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
 
 export const ContactUs = () => {
+    const {isRom, setISRom} = useLanguage();
     return (
             <Box
                 sx={{
@@ -44,21 +45,25 @@ export const ContactUs = () => {
                                     gutterBottom
                                     sx={{ fontWeight: 'bold', textAlign: 'center' }}
                                 >
-                                    Contact Us
+                                    {isRom ? 'Contacte' : 'Contacts'}
                                 </Typography>
                                 <Typography
                                     variant="body1"
                                     paragraph
                                     sx={{ fontSize: '1.2rem', lineHeight: '1.6' }}
                                 >
-                                    We are happy to answer your questions, discuss projects you have in mind, or provide you with any other information you need.
+                                    {isRom
+                                        ? 'Suntem bucuroși să vă răspundem la întrebări, să discutăm despre proiectele pe care le aveți în vedere sau să vă oferim orice alte informații de care aveți nevoie.'
+                                        : 'We are happy to answer your questions, discuss projects you have in mind, or provide you with any other information you need.'}
                                 </Typography>
                                 <Typography
                                     variant="body1"
                                     paragraph
                                     sx={{ fontSize: '1.2rem', lineHeight: '1.6' }}
                                 >
-                                    If you would like to get in touch with us, please use the following contact information:
+                                    {isRom
+                                        ? 'Dacă doriți să ne contactați, vă rugăm să utilizați una dintre următoarele metode de contact:'
+                                        : 'If you would like to get in touch with us, please use one of the following contact methods:'}
                                 </Typography>
                                 <Box sx={{
                                     flexGrow: 0,
@@ -101,34 +106,34 @@ export const ContactUs = () => {
                         <Grid item xs={12} md={6}>
                             <Paper elevation={3} sx={{ padding: '20px', borderRadius: '10px' }}>
                                 <Typography variant="h5" component="h2" gutterBottom>
-                                    Get in Touch
+                                    {isRom ? 'Luați legătura' : 'Get in Touch'}
                                 </Typography>
                                 <form noValidate autoComplete="off">
                                     <TextField
                                         required
                                         fullWidth
                                         margin="normal"
-                                        label="Your (Company) Name"
+                                        label={isRom ? 'Numele dvs. (companie)' : 'Your (Company) Name'}
                                         variant="outlined"
                                     />
                                     <TextField
                                         required
                                         fullWidth
                                         margin="normal"
-                                        label="Your Email"
+                                        label={isRom ? 'E-mailul dvs' : 'Your Email'}
                                         variant="outlined"
                                         type="email"
                                     />
                                     <TextField
                                         fullWidth
                                         margin="normal"
-                                        label="Subject"
+                                        label={isRom ? 'Subiect' : 'Subject'}
                                         variant="outlined"
                                     />
                                     <TextField
                                         fullWidth
                                         margin="normal"
-                                        label="Your Message"
+                                        label={isRom ? 'Mesajul dvs' : 'Your Message'}
                                         variant="outlined"
                                         multiline
                                         rows={4}
@@ -140,7 +145,7 @@ export const ContactUs = () => {
                                             type="submit"
                                             sx={{ marginTop: '16px' }}
                                         >
-                                            Send
+                                            {isRom ? 'Trimite' : 'Send'}
                                         </Button>
                                     </Box>
                                 </form>

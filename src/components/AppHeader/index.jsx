@@ -10,12 +10,15 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {Divider} from "@mui/material";
 import {Link} from "react-router-dom";
-import {Facebook, LinkedIn, Instagram, Pinterest, Email, Room, Phone} from '@mui/icons-material';
+import {Facebook, LinkedIn, Instagram, Email, Room, Phone} from '@mui/icons-material';
+import Switch from '@mui/material/Switch';
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
 
 import './AppHeader.css';
 
 export const AppHeader = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const {isRom, setISRom} = useLanguage();
     const openMenu = Boolean(anchorEl);
 
     const handleHover = (event) => {
@@ -23,6 +26,26 @@ export const AppHeader = () => {
     };
     const handleOffHover = () => {
         setAnchorEl(null);
+    };
+
+    const openFacebookProfile = () => {
+        const facebookProfileUrl = 'https://www.facebook.com/share/Akd4JNZg4mohpx3E/?mibextid=LQQJ4d'; // Replace with your actual Facebook profile URL
+
+        // Detect if the user is on a mobile device
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            // Attempt to open the Facebook app using a deep link
+            window.location.href = 'fb://profile/yourprofile'; // Replace 'yourprofile' with your actual profile ID or username
+
+            // Fallback to the web URL after a short delay
+            setTimeout(() => {
+                window.open(facebookProfileUrl, '_blank');
+            }, 500);
+        } else {
+            // For desktop, open in a new tab
+            window.open(facebookProfileUrl, '_blank');
+        }
     };
 
     return (
@@ -92,7 +115,7 @@ export const AppHeader = () => {
                                     component={Link}
                                     to={`/micronica/about-us`}
                                 >
-                                    ABOUT US
+                                    {isRom ? 'DESPRE NOI' : 'ABOUT US'}
                                 </Button>
                                 <Button
                                     sx={{
@@ -110,7 +133,7 @@ export const AppHeader = () => {
                                     component={Link}
                                     onClick={e => handleHover(e)}
                                 >
-                                    OUR SERVICES
+                                    {isRom ? 'SERVICII' : 'OUR SERVICES'}
                                 </Button>
                                 <Button
                                     sx={{
@@ -128,7 +151,7 @@ export const AppHeader = () => {
                                     component={Link}
                                     to={`/micronica/contact-us`}
                                 >
-                                    CONTACT US
+                                    {isRom ? 'CONTACTE' : 'CONTACTS'}
                                 </Button>
                             </Box>
                         </Box>
@@ -151,7 +174,7 @@ export const AppHeader = () => {
                                 }}
                                 component={Link} to={`/micronica/about-us`}
                             >
-                                ABOUT US
+                                {isRom ? 'DESPRE NOI' : 'ABOUT US'}
                             </Button>
                             <Button
                                 key='services'
@@ -169,7 +192,7 @@ export const AppHeader = () => {
                                 }}
                                 onClick={e => handleHover(e)}
                             >
-                                OUR SERVICES
+                                {isRom ? 'SERVICII' : 'OUR SERVICES'}
                             </Button>
                             <Menu
                                 id="basic-menu"
@@ -197,7 +220,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/cnc-machining`}
                                     onClick={handleOffHover}
                                 >
-                                    CNC MACHINING
+                                    {isRom ? 'PRELUCRAREA CNC' : 'CNC MACHINING'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -209,7 +232,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/3d-printing`}
                                     onClick={handleOffHover}
                                 >
-                                    3D PRINTING
+                                    {isRom ? 'IMPRIMARE 3D PE PUDRĂ, RĂȘINA ȘI FILAMENT' : '3D PRINTING ON POWDER, RESIN & FILAMENT'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -221,7 +244,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/injection-of-plastic-parts`}
                                     onClick={handleOffHover}
                                 >
-                                    INJECTION OF PLASTIC PARTS
+                                    {isRom ? 'INJECTIA DE MASE DIN PLASTIC' : 'INJECTION OF PLASTIC PARTS'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -233,7 +256,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/laser-engraving`}
                                     onClick={handleOffHover}
                                 >
-                                    LASER ENGRAVING
+                                    {isRom ? 'GRAVAREA LASER' : 'LASER ENGRAVING'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -245,7 +268,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/tig-wig-mig-mag-welding`}
                                     onClick={handleOffHover}
                                 >
-                                    TIG/WIG/MIG/MAG WELDING
+                                    {isRom ? 'SUDURĂ TIG/WIG/MIG/MAG' : 'TIG/WIG/MIG/MAG WELDING'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -256,7 +279,7 @@ export const AppHeader = () => {
                                     }}
                                     component={Link} to={`/micronica/mechanical-pneumatic-hydraulic-devices-and-systems`} onClick={handleOffHover}
                                 >
-                                    MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS
+                                    {isRom ? 'DISPOZITIVE ȘI SISTEME MECANICE, PNEUMATICE ȘI HIDRAULICE' : 'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'}
                                 </MenuItem>
                             </Menu>
                             <Button
@@ -277,7 +300,7 @@ export const AppHeader = () => {
                                 }}
                                 component={Link} to={`/micronica/contact-us`}
                             >
-                                CONTACT US
+                                {isRom ? 'CONTACTE' : 'CONTACTS'}
                             </Button>
                         </Box>
                         <Box sx={{
@@ -288,13 +311,16 @@ export const AppHeader = () => {
                                 gap: 0,
                             },
                         }}>
-                            <IconButton color="inherit" sx={{
+                            <IconButton
+                                onClick={() => openFacebookProfile()}
+                                color="inherit" sx={{
                                 fontSize: 38, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
                                     color: '#0080FF',
                                 },
-                            }}>
+                            }}
+                            >
                                 <Facebook fontSize="inherit"/>
                             </IconButton>
                             <IconButton color="inherit" sx={{
@@ -314,15 +340,6 @@ export const AppHeader = () => {
                                 },
                             }}>
                                 <Instagram fontSize="inherit"/>
-                            </IconButton>
-                            <IconButton color="inherit" sx={{
-                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
-                                transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
-                                '&:hover': {
-                                    color: '#0080FF',
-                                },
-                            }}>
-                                <Pinterest fontSize="inherit"/>
                             </IconButton>
                             <Divider orientation="vertical" flexItem sx={{height: 58, backgroundColor: 'white'}}/>
                             <IconButton color="inherit" sx={{
@@ -352,6 +369,46 @@ export const AppHeader = () => {
                             }}>
                                 <Phone fontSize="inherit"/>
                             </IconButton>
+                        </Box>
+                        <Box
+                            sx={{
+                                position: {xs: 'absolute', md: 'relative'},
+                                right: 2,
+                                ml: 1,
+                                mb: {xs: 7, md: 0},
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                        >
+                            <Switch
+                                onClick={() => {
+                                    setISRom(!isRom)
+                                }}
+                                checked={!isRom}
+                                sx={{
+                                    '& .MuiSwitch-switchBase.Mui-checked': {
+                                        color: '#ffffff',  // Thumb color when checked
+                                    },
+                                    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                                        backgroundColor: '#ffffff',  // Track color when checked
+                                    },
+                                    '& .MuiSwitch-switchBase': {
+                                        color: '#ffffff',  // Thumb color when unchecked
+                                    },
+                                    '& .MuiSwitch-track': {
+                                        backgroundColor: '#ffffff',  // Track color when unchecked
+                                    },
+                                }}
+                            />
+                            <Typography
+                                variant="body1"
+                                paragraph
+                                sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#ffffff', mt: 2}}
+                            >
+                                {isRom ? 'RO' : 'EN'}
+                            </Typography>
                         </Box>
                     </Toolbar>
                 </Container>

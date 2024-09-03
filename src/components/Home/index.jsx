@@ -8,11 +8,13 @@ import laserEng from '../../assets/homepage/4_laser_engraving.png';
 import welding from '../../assets/homepage/5_welding.png';
 import pneumHidr from '../../assets/homepage/6_pneumatic&hydraulic.png';
 import IconButton from "@mui/material/IconButton";
-import {Email, Facebook, Instagram, LinkedIn, Phone, Pinterest, Room} from "@mui/icons-material";
+import {Email, Facebook, Instagram, LinkedIn, Phone, Room} from "@mui/icons-material";
 import {Divider} from "@mui/material";
 import * as React from "react";
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
 
 export const Home = () => {
+    const {isRom, setISRom} = useLanguage();
     return (
         <Box
             sx={{
@@ -39,31 +41,28 @@ export const Home = () => {
                 }}
             >
                 <Box
-                    w={{ base: 'full', md: 60 }}
+                    w={{base: 'full', md: 60}}
                     h="full">
-                    <Box sx={{ flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 15, marginLeft:1, marginRight: 1 }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                                <Facebook fontSize="inherit" />
+                    <Box sx={{flexGrow: 0, display: {xs: 'flex', md: 'none'}, alignItems: 'center', marginY: 15, marginLeft: 1, marginRight: 1}}>
+                        <Box sx={{display: 'flex', flexDirection: 'column', gap: 2}}>
+                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                                <Facebook fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                                <LinkedIn fontSize="inherit" />
+                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                                <LinkedIn fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                                <Instagram fontSize="inherit" />
+                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                                <Instagram fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                                <Pinterest fontSize="inherit" />
+                            <Divider orientation="horizontal" sx={{width: '100%', backgroundColor: 'white', my: 1}}/>
+                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                                <Email fontSize="inherit"/>
                             </IconButton>
-                            <Divider orientation="horizontal" sx={{ width: '100%', backgroundColor: 'white', my: 1 }} />
-                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                                <Email fontSize="inherit" />
+                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                                <Room fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                                <Room fontSize="inherit" />
-                            </IconButton>
-                            <IconButton color="inherit" sx={{ fontSize: 35 }}>
-                                <Phone fontSize="inherit" />
+                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                                <Phone fontSize="inherit"/>
                             </IconButton>
                         </Box>
                     </Box>
@@ -83,21 +82,21 @@ export const Home = () => {
                     {/* Row 1 */}
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={'CNC MACHINING'}
+                            title={isRom ? 'PRELUCRAREA CNC' : 'CNC MACHINING'}
                             image={cncImage}
                             link={'/micronica/cnc-machining'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={'3D PRINTING'}
+                            title={isRom ? 'IMPRIMARE 3D PE PUDRĂ, RĂȘINA ȘI FILAMENT' : '3D PRINTING ON POWDER, RESIN & FILAMENT'}
                             image={TDprinting}
                             link={'/micronica/3d-printing'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={'INJECTION OF PLASTIC PARTS'}
+                            title={isRom ? 'INJECTIA DE MASE DIN PLASTIC' : 'INJECTION OF PLASTIC PARTS'}
                             image={injection}
                             link={'/micronica/injection-of-plastic-parts'}
                         />
@@ -105,21 +104,21 @@ export const Home = () => {
                     {/* Row 2 */}
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={'LASER ENGRAVING'}
+                            title={isRom ? 'GRAVAREA LASER' : 'LASER ENGRAVING'}
                             image={laserEng}
                             link={'/micronica/laser-engraving'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={'TIG/WIG/MIG/MAG WELDING'}
+                            title={isRom ? 'SUDURĂ TIG/WIG/MIG/MAG' : 'TIG/WIG/MIG/MAG WELDING'}
                             image={welding}
                             link={'/micronica/tig-wig-mig-mag-welding'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'}
+                            title={isRom ? 'DISPOZITIVE ȘI SISTEME MECANICE, PNEUMATICE ȘI HIDRAULICE' : 'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'}
                             image={pneumHidr}
                             link={'/micronica/mechanical-pneumatic-hydraulic-devices-and-systems'}
                         />

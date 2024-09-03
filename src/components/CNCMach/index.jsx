@@ -9,8 +9,10 @@ import injection from '../../assets/homepage/3_injection of plastic part.png';
 import laserEng from '../../assets/homepage/4_laser_engraving.png';
 import welding from '../../assets/homepage/5_welding.png';
 import pneumHidr from '../../assets/homepage/6_pneumatic&hydraulic.png';
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
 
 export const CNCMach = () => {
+    const {isRom, setISRom} = useLanguage();
     return (
         <Box
             sx={{
@@ -39,7 +41,7 @@ export const CNCMach = () => {
                             gutterBottom
                             sx={{fontWeight: 'bold', color: '#2c3e50', fontSize: {xs: '1.7rem', md: '2.125rem'}, textAlign: 'center', mt: {xs: 18, md: 12},}}
                         >
-                            CNC MACHINING
+                            {isRom ? 'PRELUCRAREA CNC' : 'CNC MACHINING'}
                         </Typography>
                     </Box>
                     <CustomImageList itemData={itemData}/>
@@ -51,15 +53,20 @@ export const CNCMach = () => {
                             paragraph
                             sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
                         >
-                            CNC (Computer Numerical Control) machining is a manufacturing process that uses computers to control tools and machines.
+                            {isRom ? 'Prelucrarea CNC (Computer Numerical Control) este un proces de fabricație care folosește computere pentru a controla unelte și mașini. '
+                                : 'CNC (Computer Numerical Control) machining is a manufacturing process that uses computers to control tools and machines.'}
                         </Typography>
                         <Typography
                             variant="body1"
                             paragraph
                             sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
                         >
-                            This type of machining allows for the production of complex and precise components used in a variety of industries, from aerospace to automotive.
-                            Due to its automation and accuracy, CNC machining significantly reduces production time and costs.
+                            {isRom ? 'Acest tip de prelucrare permite producerea de componente complexe și precise, utilizate într-o ' +
+                                'varietate de industrii, de la aerospațială la automotive. Datorită automatizării și preciziei sale, ' +
+                                'prelucrarea CNC reduce semnificativ timpul și costurile de producție.'
+                                : 'This type of machining allows for the production of complex and precise components ' +
+                                'used in a variety of industries, from aerospace to automotive.\n' +
+                                'Due to its automation and accuracy, CNC machining significantly reduces production time and costs.'}
                         </Typography>
                     </Container>
                 </Box>

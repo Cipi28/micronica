@@ -9,8 +9,10 @@ import injection from '../../assets/homepage/3_injection of plastic part.png';
 import laserEng from '../../assets/homepage/4_laser_engraving.png';
 import welding from '../../assets/homepage/5_welding.png';
 import pneumHidr from '../../assets/homepage/6_pneumatic&hydraulic.png';
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
 
 export const InjectionPlastic = () => {
+    const {isRom, setISRom} = useLanguage();
     return (
         <Box
             sx={{
@@ -39,7 +41,7 @@ export const InjectionPlastic = () => {
                             gutterBottom
                             sx={{fontWeight: 'bold', color: '#2c3e50', fontSize: {xs: '1.5rem', md: '2.125rem'}, textAlign: 'center', mt: {xs: 18, md: 12},}}
                         >
-                            INJECTION OF PLASTIC PARTS
+                            {isRom ? 'INJECTIA DE MASE DIN PLASTIC' : 'INJECTION OF PLASTIC PARTS'}
                         </Typography>
                     </Box>
                     <CustomImageList itemData={itemData}/>
@@ -51,15 +53,22 @@ export const InjectionPlastic = () => {
                             paragraph
                             sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
                         >
-                            Injection molding of plastic parts is a manufacturing process in which melted plastic material is injected into a mold to produce components of various shapes and sizes.
+                            {isRom ? 'Injecția de piese din plastic este un proces de fabricație în care materialul plastic topit ' +
+                                'este injectat într-un tipar pentru a produce componente de diferite forme și dimensiuni. '
+                                : 'Injection molding of plastic parts is a manufacturing process in which melted plastic material ' +
+                                'is injected into a mold to produce components of various shapes and sizes.'}
                         </Typography>
                         <Typography
                             variant="body1"
                             paragraph
                             sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#34495e', lineHeight: '1.6'}}
                         >
-                            This method is widely used in industries such as automotive, electronics, and packaging due to its ability to quickly and efficiently produce high-quality parts.
-                            Due to its versatility, plastic injection molding enables the manufacturing of complex and precise products at reduced costs.
+                            {isRom ? 'Această metodă este utilizată pe scară largă în industrii precum cea automotive, electronică și ambalaje ' +
+                                'datorită capacității sale de a produce rapid și eficient piese de calitate. Datorită versatilității sale, ' +
+                                'injecția de piese din plastic permite fabricarea unor produse complexe și precise la costuri reduse.'
+                                : 'This method is widely used in industries such as automotive, electronics, and packaging ' +
+                                'due to its ability to quickly and efficiently produce high-quality parts.\n' +
+                                'Due to its versatility, plastic injection molding enables the manufacturing of complex and precise products at reduced costs.'}
                         </Typography>
                     </Container>
                 </Box>
