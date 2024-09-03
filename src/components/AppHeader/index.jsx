@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 import {Facebook, LinkedIn, Instagram, Email, Room, Phone} from '@mui/icons-material';
 import Switch from '@mui/material/Switch';
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
-import {openFacebookProfile, openInstagramProfile} from "../../services/redirectServices.jsx";
+import {openFacebookProfile, openInstagramProfile, openEmailClient} from "../../services/redirectServices.jsx";
 
 import './AppHeader.css';
 
@@ -325,7 +325,9 @@ export const AppHeader = () => {
                                 <Instagram fontSize="inherit"/>
                             </IconButton>
                             <Divider orientation="vertical" flexItem sx={{height: 58, backgroundColor: 'white'}}/>
-                            <IconButton color="inherit" sx={{
+                            <IconButton
+                                onClick={() => openEmailClient()}
+                                color="inherit" sx={{
                                 fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
