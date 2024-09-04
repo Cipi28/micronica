@@ -12,7 +12,7 @@ import {Email, Facebook, Instagram, LinkedIn, Phone, Room} from "@mui/icons-mate
 import {Divider} from "@mui/material";
 import * as React from "react";
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
-import {openFacebookProfile, openInstagramProfile} from "../../services/redirectServices.jsx";
+import {openEmailClient, openFacebookProfile, openInstagramProfile} from "../../services/redirectServices.jsx";
 
 export const Home = () => {
     const {isRom, setISRom} = useLanguage();
@@ -60,7 +60,10 @@ export const Home = () => {
                                 <Instagram fontSize="inherit"/>
                             </IconButton>
                             <Divider orientation="horizontal" sx={{width: '100%', backgroundColor: 'white', my: 1}}/>
-                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                            <IconButton
+                                onClick={() => openEmailClient()}
+                                color="inherit" sx={{fontSize: 35}}
+                            >
                                 <Email fontSize="inherit"/>
                             </IconButton>
                             <IconButton color="inherit" sx={{fontSize: 35}}>
