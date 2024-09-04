@@ -20,7 +20,7 @@ export const openFacebookProfile = () => {
 };
 
 export const openInstagramProfile = () => {
-    const instagramProfileUrl = 'https://www.instagram.com/micronica.2004?igsh=cHNmdnF3Mm1mN29x&utm_source=qr'; // Replace with your actual Instagram profile URL
+    const instagramProfileUrl = 'https://www.instagram.com/micronica.2004'; // Replace with your actual Instagram profile URL
 
     // Detect if the user is on a mobile device
     // const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -45,5 +45,5 @@ export const openEmailClient = () => {
 
     const mailtoLink = `mailto:${email}`;
 
-    window.location.href = mailtoLink;
+    window.open(mailtoLink, '_blank');
 };
