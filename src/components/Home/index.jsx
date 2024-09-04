@@ -12,7 +12,7 @@ import {Email, Facebook, Instagram, LinkedIn, Phone, Room} from "@mui/icons-mate
 import {Divider} from "@mui/material";
 import * as React from "react";
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
-import {openEmailClient, openFacebookProfile, openInstagramProfile} from "../../services/redirectServices.jsx";
+import {openEmailClient, openFacebookProfile, openInstagramProfile, openMapsLocation} from "../../services/redirectServices.jsx";
 
 export const Home = () => {
     const {isRom, setISRom} = useLanguage();
@@ -66,7 +66,9 @@ export const Home = () => {
                             >
                                 <Email fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{fontSize: 35}}>
+                            <IconButton
+                                onClick={() => openMapsLocation()}
+                                color="inherit" sx={{fontSize: 35}}>
                                 <Room fontSize="inherit"/>
                             </IconButton>
                             <IconButton color="inherit" sx={{fontSize: 35}}>

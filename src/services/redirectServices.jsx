@@ -5,13 +5,17 @@ export const openFacebookProfile = () => {
 
 export const openInstagramProfile = () => {
     const instagramProfileUrl = 'https://www.instagram.com/micronica.2004';
-    window.open(instagramProfileUrl);
+    window.location.href = instagramProfileUrl;
 };
 
 export const openEmailClient = () => {
     const email = 'office@micronica.ro';
-
     const mailtoLink = `mailto:${email}`;
+    window.location.href = mailtoLink;
+};
 
-    window.open(mailtoLink, '_blank');
+export const openMapsLocation = () => {
+    const placeName = encodeURIComponent('MICRONICA S.R.L., Hala 1, Str. Gării nr. 10, Sânnicolau Mare 305600');
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${placeName}`;
+    window.open(googleMapsUrl, '_blank');
 };
