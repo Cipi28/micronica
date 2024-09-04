@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 import {Facebook, LinkedIn, Instagram, Email, Room, Phone} from '@mui/icons-material';
 import Switch from '@mui/material/Switch';
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
-import {openFacebookProfile, openInstagramProfile, openEmailClient, openMapsLocation} from "../../services/redirectServices.jsx";
+import {openFacebookProfile, openInstagramProfile, openEmailClient, openMapsLocation, openPhoneDialer} from "../../services/redirectServices.jsx";
 
 import './AppHeader.css';
 
@@ -347,7 +347,9 @@ export const AppHeader = () => {
                             }}>
                                 <Room fontSize="inherit"/>
                             </IconButton>
-                            <IconButton color="inherit" sx={{
+                            <IconButton
+                                onClick={() => openPhoneDialer()}
+                                color="inherit" sx={{
                                 fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
                                 '&:hover': {
