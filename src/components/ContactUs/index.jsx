@@ -3,9 +3,93 @@ import IconButton from "@mui/material/IconButton";
 import {Email, Phone, Room} from "@mui/icons-material";
 import * as React from "react";
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
+import {useState} from "react";
+import emailjs from 'emailjs-com';
+
+const DEFAULT_SUBJECT = "Email trimis de pe site-ul MICRONICA"
 
 export const ContactUs = () => {
     const {isRom, setISRom} = useLanguage();
+
+    //todo: default SUBJECT
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+    const [errors, setErrors] = useState({});
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const validateForm = () => {
+        let formErrors = {};
+
+        // Name validation
+        if (!formData.name || formData.name.length < 3) {
+            formErrors.name = isRom ? 'Numele trebuie să aibă cel puțin 3 caractere' : 'Name must be at least 3 characters';
+        }
+
+        // Email validation
+        if (!formData.email) {
+            formErrors.email = isRom ? 'E-mailul este obligatoriu' : 'Email is required';
+        } else if (!emailRegex.test(formData.email)) {
+            formErrors.email = isRom ? 'Format de e-mail invalid' : 'Invalid email format';
+        }
+
+        // Message validation
+        if (!formData.message || formData.message.length < 15) {
+            formErrors.message = isRom ? 'Mesajul trebuie să aibă cel puțin 15 caractere' : 'Message must be at least 15 characters';
+        }
+
+        setErrors(formErrors);
+
+        return Object.keys(formErrors).length === 0;
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (validateForm()) {
+
+            var sentData = formData;
+            if(sentData.subject === '') {
+                sentData.subject = DEFAULT_SUBJECT;
+            }
+            emailjs.init('_oITw2nA-QrpG8wQH');
+
+            emailjs.send(
+                'service_up4yv27',
+                'template_62b1vj9',
+                sentData,
+            ).then(
+                (response) => {
+                    alert(isRom ? 'Mesajul a fost trimis cu succes' : 'The message has been successfully sent');
+                },
+                (error) => {
+                    alert(isRom ? 'Eroare: mesajul nu a fost trimis. Încercați din nou mai târziu' : 'Error: The message wasn\'t sent. Try again later');
+                    console.log(error);
+                }
+            );
+
+            setFormData({
+                name: '',
+                email: '',
+                subject: '',
+                message: '',
+            });
+
+            setErrors({});
+        }
+    };
+
     return (
             <Box
                 sx={{
@@ -108,13 +192,18 @@ export const ContactUs = () => {
                                 <Typography variant="h5" component="h2" gutterBottom>
                                     {isRom ? 'Luați legătura' : 'Get in Touch'}
                                 </Typography>
-                                <form noValidate autoComplete="off">
+                                <form noValidate autoComplete="off" onSubmit={handleSubmit}>
                                     <TextField
                                         required
                                         fullWidth
                                         margin="normal"
                                         label={isRom ? 'Numele dvs. (companie)' : 'Your (Company) Name'}
                                         variant="outlined"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        error={!!errors.name}
+                                        helperText={errors.name}
                                     />
                                     <TextField
                                         required
@@ -123,20 +212,34 @@ export const ContactUs = () => {
                                         label={isRom ? 'E-mailul dvs' : 'Your Email'}
                                         variant="outlined"
                                         type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        error={!!errors.email}
+                                        helperText={errors.email}
                                     />
                                     <TextField
                                         fullWidth
                                         margin="normal"
                                         label={isRom ? 'Subiect' : 'Subject'}
                                         variant="outlined"
+                                        name="subject"
+                                        value={formData.subject}
+                                        onChange={handleChange}
                                     />
                                     <TextField
+                                        required
                                         fullWidth
                                         margin="normal"
                                         label={isRom ? 'Mesajul dvs' : 'Your Message'}
                                         variant="outlined"
                                         multiline
-                                        rows={4}
+                                        rows={8}
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        error={!!errors.message}
+                                        helperText={errors.message}
                                     />
                                     <Box display="flex" justifyContent="center" alignItems="center">
                                         <Button

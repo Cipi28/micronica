@@ -32,7 +32,9 @@ export const AppHeader = () => {
     return (
         <Box>
             <AppBar position="fixed">
-                <Container maxWidth="full">
+                <Container maxWidth="full" sx={{
+                    pr: 0, pl: 0,
+                }}>
                     <Toolbar disableGutters>
                         <Typography
                             variant="h6"
@@ -73,7 +75,6 @@ export const AppHeader = () => {
                                     letterSpacing: '.3rem',
                                     color: 'inherit',
                                     textDecoration: 'none',
-                                    mb: 1,
                                 }}
                             >
                                 MICRONICA
@@ -176,7 +177,7 @@ export const AppHeader = () => {
                                 {isRom ? 'SERVICII' : 'OUR SERVICES'}
                             </Button>
                             <Menu
-                                id="basic-menu"
+                                id="services-menu"
                                 anchorEl={anchorEl}
                                 open={openMenu}
                                 onClose={handleOffHover}
@@ -197,6 +198,12 @@ export const AppHeader = () => {
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
                                         fontSize: '0.75rem',  // Adjust the font size if needed
+                                        paddingTop: '0px',
+                                        paddingBottom: '0px',
+                                        minHeight: 'auto',
+                                        maxWidth: '20rem',
+                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
+                                        wordWrap: 'break-word', // Breaks long words if necessary
                                     }}
                                     component={Link} to={`/micronica/cnc-machining`}
                                     onClick={handleOffHover}
@@ -209,6 +216,11 @@ export const AppHeader = () => {
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
                                         fontSize: '0.75rem',  // Adjust the font size if needed
+                                        paddingTop: '0px',
+                                        paddingBottom: '0px',
+                                        minHeight: 'auto',
+                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
+                                        wordWrap: 'break-word', // Breaks long words if necessary
                                     }}
                                     component={Link} to={`/micronica/3d-printing`}
                                     onClick={handleOffHover}
@@ -221,6 +233,11 @@ export const AppHeader = () => {
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
                                         fontSize: '0.75rem',  // Adjust the font size if needed
+                                        paddingTop: '0px',
+                                        paddingBottom: '0px',
+                                        minHeight: 'auto',
+                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
+                                        wordWrap: 'break-word', // Breaks long words if necessary
                                     }}
                                     component={Link} to={`/micronica/injection-of-plastic-parts`}
                                     onClick={handleOffHover}
@@ -233,6 +250,11 @@ export const AppHeader = () => {
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
                                         fontSize: '0.75rem',  // Adjust the font size if needed
+                                        paddingTop: '0px',
+                                        paddingBottom: '0px',
+                                        minHeight: 'auto',
+                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
+                                        wordWrap: 'break-word', // Breaks long words if necessary
                                     }}
                                     component={Link} to={`/micronica/laser-engraving`}
                                     onClick={handleOffHover}
@@ -245,6 +267,11 @@ export const AppHeader = () => {
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
                                         fontSize: '0.75rem',  // Adjust the font size if needed
+                                        paddingTop: '0px',
+                                        paddingBottom: '0px',
+                                        minHeight: 'auto',
+                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
+                                        wordWrap: 'break-word', // Breaks long words if necessary
                                     }}
                                     component={Link} to={`/micronica/tig-wig-mig-mag-welding`}
                                     onClick={handleOffHover}
@@ -257,6 +284,11 @@ export const AppHeader = () => {
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
                                         fontSize: '0.75rem',  // Adjust the font size if needed
+                                        paddingTop: '0px',
+                                        paddingBottom: '0px',
+                                        minHeight: 'auto',
+                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
+                                        wordWrap: 'break-word', // Breaks long words if necessary
                                     }}
                                     component={Link} to={`/micronica/mechanical-pneumatic-hydraulic-devices-and-systems`} onClick={handleOffHover}
                                 >
@@ -368,7 +400,11 @@ export const AppHeader = () => {
                                 display: 'flex',
                                 flexDirection: 'row',
                                 justifyContent: 'center',
-                                alignItems: 'center'
+                                alignItems: 'center',
+                                border: '2px solid white',  // White border
+                                borderRadius: '50px',  // Oval shape
+                                padding: '0px 0px',  // Padding for spacing
+                                mr: {xs: 1, md: 0}
                             }}
                         >
                             <Switch
@@ -394,7 +430,7 @@ export const AppHeader = () => {
                             <Typography
                                 variant="body1"
                                 paragraph
-                                sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#ffffff', mt: 2}}
+                                sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#ffffff',  mb: 0, mr: 1, fontWeight: 'bold'}}
                             >
                                 {isRom ? 'RO' : 'EN'}
                             </Typography>

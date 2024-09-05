@@ -5,7 +5,7 @@ export const openFacebookProfile = () => {
     if (isMobile) {
         window.location.href = facebookProfileUrl;
     } else {
-        window.open(instagramProfileUrl, '_blank');
+        window.open(facebookProfileUrl, '_blank');
     }
 };
 
@@ -29,7 +29,6 @@ export const openEmailClient = () => {
 export const openMapsLocation = () => {
     const placeName = encodeURIComponent('MICRONICA S.R.L., Hala 1, Str. Gării nr. 10, Sânnicolau Mare 305600');
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${placeName}`;
-
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     if (isMobile) {
@@ -40,8 +39,7 @@ export const openMapsLocation = () => {
 };
 
 export const openPhoneDialer = () => {
-    const phoneNumber = '+1234567890';  // Replace with the actual phone number
+    const phoneNumber = '+40723332068';
 
-    // Use the tel: scheme to open the phone dialer
     window.location.href = `tel:${phoneNumber}`;
 };

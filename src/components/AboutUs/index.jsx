@@ -35,7 +35,7 @@ export const AboutUs = () => {
                         boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
                         '@media (max-width:900px)': {
                             marginTop: 10,
-                            p: 3,
+                            p: 2,
                         },
                     }}
                 >
@@ -45,7 +45,7 @@ export const AboutUs = () => {
                                 <img src={cncImage} alt="Micronica Team" style={{width: '100%', height: 'auto'}}/>
                             </Paper>
                         </Grid>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={6} sx={{pt: 30}}>
                             <Typography
                                 variant="h4"
                                 component="h1"
