@@ -118,7 +118,8 @@ export const ContactUs = () => {
                                     borderColor: 'black',
                                     boxShadow: '0 4px 20px rgba(0,0,0,0.1)',  // Optional: add a soft shadow for depth
                                     '@media (max-width:900px)': {
-                                        marginTop: 10
+                                        marginTop: 10,
+                                        p: 2,
                                     },
                                 }}
                             >
@@ -188,7 +189,7 @@ export const ContactUs = () => {
                         {/* Right Section: Contact Form */}
                         <Grid item xs={12} md={6}>
                             <Paper elevation={3} sx={{ padding: '20px', borderRadius: '10px' }}>
-                                <Typography variant="h5" component="h2" gutterBottom>
+                                <Typography variant="h6" component="h2">
                                     {isRom ? 'Luați legătura' : 'Get in Touch'}
                                 </Typography>
                                 <form noValidate autoComplete="off" onSubmit={handleSubmit}>
@@ -203,6 +204,9 @@ export const ContactUs = () => {
                                         onChange={handleChange}
                                         error={!!errors.name}
                                         helperText={errors.name}
+                                        sx={{
+                                            height: '40px', // Set a specific width here
+                                        }}
                                     />
                                     <TextField
                                         required
@@ -216,6 +220,9 @@ export const ContactUs = () => {
                                         onChange={handleChange}
                                         error={!!errors.email}
                                         helperText={errors.email}
+                                        sx={{
+                                            height: '40px', // Set a specific width here
+                                        }}
                                     />
                                     <TextField
                                         fullWidth
@@ -233,7 +240,7 @@ export const ContactUs = () => {
                                         label={isRom ? 'Mesajul dvs' : 'Your Message'}
                                         variant="outlined"
                                         multiline
-                                        rows={8}
+                                        rows={6}
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}

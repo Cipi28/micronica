@@ -1,17 +1,7 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import {Divider} from "@mui/material";
+import {Divider, MenuItem, Button, Container, Menu, Typography, IconButton, Toolbar, Box, AppBar, Switch} from "@mui/material";
 import {Link} from "react-router-dom";
 import {Facebook, LinkedIn, Instagram, Email, Room, Phone} from '@mui/icons-material';
-import Switch from '@mui/material/Switch';
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
 import {openFacebookProfile, openInstagramProfile, openEmailClient, openMapsLocation, openPhoneDialer} from "../../services/redirectServices.jsx";
 
@@ -88,7 +78,6 @@ export const AppHeader = () => {
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',
                                         fontSize: '0.8rem',
-                                        backgroundColor: 'transparent',
                                         transition: 'background-color 0.3s ease, color 0.3s ease',
                                         '&:hover': {
                                             color: '#0080FF',
@@ -104,10 +93,9 @@ export const AppHeader = () => {
                                         my: 2,
                                         color: 'white',
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '0.8rem',  // Adjust the font size if needed
-                                        backgroundColor: 'transparent', // Initial background color
-                                        transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.8rem',
+                                        transition: 'background-color 0.3s ease, color 0.3s ease',
                                         '&:hover': {
                                             color: '#0080FF',
                                         },
@@ -122,10 +110,9 @@ export const AppHeader = () => {
                                         my: 2,
                                         color: 'white',
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '0.8rem',  // Adjust the font size if needed
-                                        backgroundColor: 'transparent', // Initial background color
-                                        transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.8rem',
+                                        transition: 'background-color 0.3s ease, color 0.3s ease',
                                         '&:hover': {
                                             color: '#0080FF',
                                         },
@@ -144,10 +131,9 @@ export const AppHeader = () => {
                                     my: 2,
                                     color: 'white',
                                     display: 'block',
-                                    fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                    fontSize: '1rem',  // Adjust the font size if needed
-                                    backgroundColor: 'transparent', // Initial background color
-                                    transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                    fontFamily: 'Montserrat, Arial, sans-serif',
+                                    fontSize: '1rem',
+                                    transition: 'background-color 0.3s ease, color 0.3s ease',
                                     '&:hover': {
                                         color: '#0080FF',
                                     },
@@ -164,10 +150,9 @@ export const AppHeader = () => {
                                     my: 2,
                                     color: 'white',
                                     display: 'block',
-                                    fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                    fontSize: '1rem',  // Adjust the font size if needed
-                                    backgroundColor: 'transparent', // Initial background color
-                                    transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                    fontFamily: 'Montserrat, Arial, sans-serif',
+                                    fontSize: '1rem',
+                                    transition: 'background-color 0.3s ease, color 0.3s ease',
                                     '&:hover': {
                                         color: '#0080FF',
                                     },
@@ -196,8 +181,8 @@ export const AppHeader = () => {
                                 <MenuItem
                                     sx={{
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '0.75rem',  // Adjust the font size if needed
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.75rem',
                                         paddingTop: '0px',
                                         paddingBottom: '0px',
                                         minHeight: 'auto',
@@ -214,13 +199,13 @@ export const AppHeader = () => {
                                 <MenuItem
                                     sx={{
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '0.75rem',  // Adjust the font size if needed
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.75rem',
                                         paddingTop: '0px',
                                         paddingBottom: '0px',
                                         minHeight: 'auto',
-                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
-                                        wordWrap: 'break-word', // Breaks long words if necessary
+                                        whiteSpace: 'normal',
+                                        wordWrap: 'break-word',
                                     }}
                                     component={Link} to={`/micronica/3d-printing`}
                                     onClick={handleOffHover}
@@ -231,13 +216,13 @@ export const AppHeader = () => {
                                 <MenuItem
                                     sx={{
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '0.75rem',  // Adjust the font size if needed
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.75rem',
                                         paddingTop: '0px',
                                         paddingBottom: '0px',
                                         minHeight: 'auto',
-                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
-                                        wordWrap: 'break-word', // Breaks long words if necessary
+                                        whiteSpace: 'normal',
+                                        wordWrap: 'break-word',
                                     }}
                                     component={Link} to={`/micronica/injection-of-plastic-parts`}
                                     onClick={handleOffHover}
@@ -248,13 +233,13 @@ export const AppHeader = () => {
                                 <MenuItem
                                     sx={{
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '0.75rem',  // Adjust the font size if needed
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.75rem',
                                         paddingTop: '0px',
                                         paddingBottom: '0px',
                                         minHeight: 'auto',
-                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
-                                        wordWrap: 'break-word', // Breaks long words if necessary
+                                        whiteSpace: 'normal',
+                                        wordWrap: 'break-word',
                                     }}
                                     component={Link} to={`/micronica/laser-engraving`}
                                     onClick={handleOffHover}
@@ -265,13 +250,13 @@ export const AppHeader = () => {
                                 <MenuItem
                                     sx={{
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '0.75rem',  // Adjust the font size if needed
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.75rem',
                                         paddingTop: '0px',
                                         paddingBottom: '0px',
                                         minHeight: 'auto',
-                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
-                                        wordWrap: 'break-word', // Breaks long words if necessary
+                                        whiteSpace: 'normal',
+                                        wordWrap: 'break-word',
                                     }}
                                     component={Link} to={`/micronica/tig-wig-mig-mag-welding`}
                                     onClick={handleOffHover}
@@ -282,13 +267,13 @@ export const AppHeader = () => {
                                 <MenuItem
                                     sx={{
                                         display: 'block',
-                                        fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                        fontSize: '0.75rem',  // Adjust the font size if needed
+                                        fontFamily: 'Montserrat, Arial, sans-serif',
+                                        fontSize: '0.75rem',
                                         paddingTop: '0px',
                                         paddingBottom: '0px',
                                         minHeight: 'auto',
-                                        whiteSpace: 'normal',   // Allows text to wrap to the next line
-                                        wordWrap: 'break-word', // Breaks long words if necessary
+                                        whiteSpace: 'normal',
+                                        wordWrap: 'break-word',
                                     }}
                                     component={Link} to={`/micronica/mechanical-pneumatic-hydraulic-devices-and-systems`} onClick={handleOffHover}
                                 >
@@ -301,10 +286,9 @@ export const AppHeader = () => {
                                     my: 2,
                                     color: 'white',
                                     display: 'block',
-                                    fontFamily: 'Montserrat, Arial, sans-serif',  // Replace 'CustomFont' with your desired font
-                                    fontSize: '1rem',  // Adjust the font size if needed
-                                    backgroundColor: 'transparent', // Initial background color
-                                    transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                    fontFamily: 'Montserrat, Arial, sans-serif',
+                                    fontSize: '1rem',
+                                    transition: 'background-color 0.3s ease, color 0.3s ease',
                                     '&:hover': {
                                         color: '#0080FF',
                                     },
@@ -328,7 +312,7 @@ export const AppHeader = () => {
                                 onClick={() => openFacebookProfile()}
                                 color="inherit" sx={{
                                 fontSize: 38, '@media (max-width:1150px)': {fontSize: 28},
-                                transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
                                 },
@@ -338,7 +322,7 @@ export const AppHeader = () => {
                             </IconButton>
                             <IconButton color="inherit" sx={{
                                 fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
-                                transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
                                 },
@@ -349,7 +333,7 @@ export const AppHeader = () => {
                                 onClick={() => openInstagramProfile()}
                                 color="inherit" sx={{
                                 fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
-                                transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
                                 },
@@ -361,7 +345,7 @@ export const AppHeader = () => {
                                 onClick={() => openEmailClient()}
                                 color="inherit" sx={{
                                 fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
-                                transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
                                 },
@@ -372,7 +356,7 @@ export const AppHeader = () => {
                                 onClick={() => openMapsLocation()}
                                 color="inherit" sx={{
                                 fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
-                                transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
                                 },
@@ -383,7 +367,7 @@ export const AppHeader = () => {
                                 onClick={() => openPhoneDialer()}
                                 color="inherit" sx={{
                                 fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
-                                transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+                                transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
                                 },
@@ -401,9 +385,9 @@ export const AppHeader = () => {
                                 flexDirection: 'row',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                border: '2px solid white',  // White border
-                                borderRadius: '50px',  // Oval shape
-                                padding: '0px 0px',  // Padding for spacing
+                                border: '2px solid white',
+                                borderRadius: '50px',
+                                padding: '0px 0px',
                                 mr: {xs: 1, md: 0}
                             }}
                         >
@@ -430,7 +414,7 @@ export const AppHeader = () => {
                             <Typography
                                 variant="body1"
                                 paragraph
-                                sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#ffffff',  mb: 0, mr: 1, fontWeight: 'bold'}}
+                                sx={{fontSize: {xs: '0.9rem', md: '1.2rem'}, color: '#ffffff', mb: 0, mr: 1, fontWeight: 'bold'}}
                             >
                                 {isRom ? 'RO' : 'EN'}
                             </Typography>

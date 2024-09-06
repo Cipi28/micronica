@@ -4,8 +4,6 @@ import {ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import {ChakraProvider} from '@chakra-ui/react'
 import {LanguageProvider} from './configs/LanguageProvider.jsx';
 
-import './App.css'
-
 function App() {
 
     const theme = createTheme({

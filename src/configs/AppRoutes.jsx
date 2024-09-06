@@ -11,7 +11,6 @@ import {Weldings} from "../components/Weldings/index.jsx";
 import {DevAndSystems} from "../components/DevAndSystems/index.jsx";
 
 export const AppRoutes = () => {
-    // console.log("FFFF", process.env.REACT_APP_BASE_URL);
     return (
         <Routes>
             <Route path={`/micronica`} element={<App/>}>
