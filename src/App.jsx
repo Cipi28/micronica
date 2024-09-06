@@ -1,6 +1,6 @@
 import {Outlet} from "react-router-dom";
 import {AppHeader} from "./components/AppHeader";
-import {ThemeProvider, createTheme} from "@mui/material";
+import {ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import {ChakraProvider} from '@chakra-ui/react'
 import {LanguageProvider} from './configs/LanguageProvider.jsx';
 
@@ -16,12 +16,16 @@ function App() {
             secondary: {
                 main: "#ffffff",
             },
+            background: {
+                default: "#f4f4f9",
+            },
         },
     });
 
     return (
         <ChakraProvider>
             <ThemeProvider theme={theme}>
+                <CssBaseline />
                 <LanguageProvider>
                     <AppHeader/>
                     <Outlet/>

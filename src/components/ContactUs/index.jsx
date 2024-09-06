@@ -97,7 +97,6 @@ export const ContactUs = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     minHeight: '100vh',
-                    backgroundColor: '#f4f4f9',
                     py: 10,
                 }}
             >

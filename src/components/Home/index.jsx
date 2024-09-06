@@ -20,20 +20,20 @@ export const Home = () => {
         <Box
             sx={{
                 display: 'flex',
-                height: '100vh',
+                height: '80vh',
                 width: '100%',
             }}
         >
 
             <Box
                 sx={{
-                    mt: 6,
+                    mt: 10,
                     height: '90vh',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     '@media (max-width:900px)': {
-                        // mt: 10,
+                        mt: 6,
                     },
                     '@media (max-width:600px)': {
                         // mt: 0,

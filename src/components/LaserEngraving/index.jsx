@@ -17,7 +17,6 @@ export const LaserEngraving = () => {
         <Box
             sx={{
                 minHeight: '100vh',
-                backgroundColor: '#f4f4f9',
             }}>
             <Box
                 sx={{
