@@ -1,7 +1,6 @@
+import * as React from "react";
 import {Box, Dialog, DialogContent, ImageList, ImageListItem, useMediaQuery, useTheme} from "@mui/material";
 import {useState} from "react";
-import Typography from "@mui/material/Typography";
-import * as React from "react";
 
 export const CustomImageList = ({itemData}) => {
     const theme = useTheme();
@@ -42,11 +41,11 @@ export const CustomImageList = ({itemData}) => {
                         height: 400,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
-                        borderRadius: '10px',  // Rounded corners for the background box
+                        borderRadius: '10px',
                         borderMargin: '5px',
                         borderColor: 'black',
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',  // Optional: add a soft shadow for depth
-                        p: 2, // Optional padding to prevent shadow clipping
+                        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                        p: 2,
                         overflowY: 'auto',
                         backgroundColor: '#ffffff',
                         '@media (max-width:600px)': {

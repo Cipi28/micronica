@@ -1,15 +1,15 @@
-import {Box} from '@mui/material';
-import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { Typography, Container, Box } from "@mui/material";
 import {CustomImageList} from "../CustomImageList/index.jsx";
-import Container from "@mui/material/Container";
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
+import ScrollToTopService from "../../services/ScrollToTopService.jsx";
+
 import cncImage from '../../assets/homepage/1_cnc_machining.png';
 import TDprinting from '../../assets/homepage/2_3d_printing.png';
 import injection from '../../assets/homepage/3_injection of plastic part.png';
 import laserEng from '../../assets/homepage/4_laser_engraving.png';
 import welding from '../../assets/homepage/5_welding.png';
 import pneumHidr from '../../assets/homepage/6_pneumatic&hydraulic.png';
-import {useLanguage} from '../../configs/LanguageProvider.jsx';
 
 export const CNCMach = () => {
     const {isRom, setISRom} = useLanguage();
@@ -18,6 +18,7 @@ export const CNCMach = () => {
             sx={{
                 minHeight: '100vh',
             }}>
+            <ScrollToTopService/>
             <Box
                 sx={{
                     display: 'flex',

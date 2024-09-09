@@ -1,9 +1,5 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import {CardActionArea} from '@mui/material';
-import Box from "@mui/material/Box";
+import {CardActionArea, Box, Typography, CardMedia, Card } from '@mui/material';
 import {Link} from "react-router-dom";
 
 export default function PageCard({title, image, link}) {
@@ -23,22 +19,22 @@ export default function PageCard({title, image, link}) {
                 },
                 display: 'flex', flexDirection: 'column',
                 textDecoration: 'none',
-                boxShadow: 10, // 3D shadow effect
+                boxShadow: 10,
                 borderRadius: 2,
             }}>
-            <CardActionArea sx={{ height: '100%', position: 'relative' }}>
+            <CardActionArea sx={{height: '100%', position: 'relative'}}>
                 <CardMedia
                     component="img"
                     image={image}
                     alt={`${title} image`}
-                    sx={{ height: '100%', width: '100%' }}
+                    sx={{height: '100%', width: '100%'}}
                 />
                 <Box
                     sx={{
                         position: 'absolute',
                         bottom: 0,
                         width: '100%',
-                        background: 'rgba(0, 0, 0, 0.5)', // Faded effect
+                        background: 'rgba(0, 0, 0, 0.5)',
                         color: 'white',
                         textAlign: 'center',
                         padding: '0.5rem',
@@ -49,10 +45,6 @@ export default function PageCard({title, image, link}) {
                         variant="h6"
                         component="div"
                         sx={{
-                            // marginTop: '1rem',
-                            // marginBottom: '1rem',
-                            // marginLeft: '2rem',
-                            // marginRight: '2rem',
                             '@media (max-width:600px)': {
                                 fontSize: '0.5rem',
                             },

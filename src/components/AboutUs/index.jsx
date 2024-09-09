@@ -2,6 +2,7 @@ import * as React from "react";
 import {Box, Container, Typography, Grid, Paper} from '@mui/material';
 import cncImage from '../../assets/homepage/1_cnc_machining.png';
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
+import ScrollToTopService from "../../services/ScrollToTopService.jsx";
 
 export const AboutUs = () => {
     const {isRom, setISRom} = useLanguage();
@@ -10,6 +11,7 @@ export const AboutUs = () => {
             sx={{
                 minHeight: '100vh',
             }}>
+            <ScrollToTopService />
             <Box
                 sx={{
                     display: 'flex',

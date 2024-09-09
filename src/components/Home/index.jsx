@@ -1,18 +1,17 @@
-import {Box, Grid} from '@mui/material';
-
+import * as React from "react";
 import PageCard from "../PageCard/index.jsx";
+import {Box, Grid, Divider, IconButton} from '@mui/material';
+import {Email, Facebook, Instagram, LinkedIn, Phone, Room} from "@mui/icons-material";
+import {useLanguage} from '../../configs/LanguageProvider.jsx';
+import {openEmailClient, openFacebookProfile, openInstagramProfile, openMapsLocation, openPhoneDialer} from "../../services/redirectServices.jsx";
+import ScrollToTopService from "../../services/ScrollToTopService.jsx";
+
 import cncImage from '../../assets/homepage/1_cnc_machining.png';
 import TDprinting from '../../assets/homepage/2_3d_printing.png';
 import injection from '../../assets/homepage/3_injection of plastic part.png';
 import laserEng from '../../assets/homepage/4_laser_engraving.png';
 import welding from '../../assets/homepage/5_welding.png';
 import pneumHidr from '../../assets/homepage/6_pneumatic&hydraulic.png';
-import IconButton from "@mui/material/IconButton";
-import {Email, Facebook, Instagram, LinkedIn, Phone, Room} from "@mui/icons-material";
-import {Divider} from "@mui/material";
-import * as React from "react";
-import {useLanguage} from '../../configs/LanguageProvider.jsx';
-import {openEmailClient, openFacebookProfile, openInstagramProfile, openMapsLocation, openPhoneDialer} from "../../services/redirectServices.jsx";
 
 export const Home = () => {
     const {isRom, setISRom} = useLanguage();
@@ -24,7 +23,7 @@ export const Home = () => {
                 width: '100%',
             }}
         >
-
+            <ScrollToTopService/>
             <Box
                 sx={{
                     mt: 10,
