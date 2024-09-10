@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {Facebook, LinkedIn, Instagram, Email, Room, Phone} from '@mui/icons-material';
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
 import {openFacebookProfile, openInstagramProfile, openEmailClient, openMapsLocation, openPhoneDialer} from "../../services/redirectServices.jsx";
+import logo from "../../assets/logo.svg";
 
 import './AppHeader.css';
 
@@ -24,28 +25,22 @@ export const AppHeader = () => {
             <AppBar position="fixed">
                 <Container maxWidth="full" sx={{
                     pr: 0, pl: 0,
+                    '@media (min-width:600px)': {
+                        pl: 0,
+                    },
                 }}>
                     <Toolbar disableGutters>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component={Link} to={`${import.meta.env.BASE_URL}`}
-                            sx={{
-                                mr: 2,
-                                display: {xs: 'none', md: 'flex'},
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            MICRONICA
-                        </Typography>
-
                         <Box
                             sx={{
-                                mt: 2,
+                                    display: {xs: 'none', md: 'flex'},
+                                    pl: 1
+                                }}
+                        >
+                        <img src={logo} alt="Logo" className="logo"/>
+                        </Box>
+                        <Box
+                            sx={{
+                                mt: 1,
                                 flexGrow: 1,
                                 display: {xs: 'flex', md: 'none'},
                                 flexDirection: 'column',
@@ -53,23 +48,7 @@ export const AppHeader = () => {
                                 alignItems: 'center'
                             }}
                         >
-                            <Typography
-                                variant="h5"
-                                noWrap
-                                component={Link}
-                                to={`${import.meta.env.BASE_URL}`}
-                                sx={{
-                                    display: {xs: 'flex', md: 'none'},
-                                    fontFamily: 'monospace',
-                                    fontWeight: 700,
-                                    letterSpacing: '.3rem',
-                                    color: 'inherit',
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                MICRONICA
-                            </Typography>
-
+                            <img src={logo} alt="Logo" style={{ width: '12rem' }} />
                             <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                                 <Button
                                     sx={{
@@ -137,6 +116,10 @@ export const AppHeader = () => {
                                     '&:hover': {
                                         color: '#0080FF',
                                     },
+                                    '@media (max-width:1175px)': {
+                                        mt: 2,
+                                        fontSize: '0.9rem',
+                                    },
                                 }}
                                 onClick={() => {
                                 }}
@@ -155,6 +138,10 @@ export const AppHeader = () => {
                                     transition: 'background-color 0.3s ease, color 0.3s ease',
                                     '&:hover': {
                                         color: '#0080FF',
+                                    },
+                                    '@media (max-width:1175px)': {
+                                        mt: 2,
+                                        fontSize: '0.9rem',
                                     },
                                 }}
                                 onClick={e => handleHover(e)}
@@ -292,6 +279,10 @@ export const AppHeader = () => {
                                     '&:hover': {
                                         color: '#0080FF',
                                     },
+                                    '@media (max-width:1175px)': {
+                                        mt: 2,
+                                        fontSize: '0.9rem',
+                                    },
                                 }}
                                 onClick={() => {
                                 }}
@@ -304,14 +295,14 @@ export const AppHeader = () => {
                             flexGrow: 0,
                             display: {xs: 'none', md: 'flex'},
                             gap: 3,
-                            '@media (max-width:1150px)': {
+                            '@media (max-width:1175px)': {
                                 gap: 0,
                             },
                         }}>
                             <IconButton
                                 onClick={() => openFacebookProfile()}
                                 color="inherit" sx={{
-                                fontSize: 38, '@media (max-width:1150px)': {fontSize: 28},
+                                fontSize: 38, '@media (max-width:1175px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
@@ -321,7 +312,7 @@ export const AppHeader = () => {
                                 <Facebook fontSize="inherit"/>
                             </IconButton>
                             <IconButton color="inherit" sx={{
-                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                                fontSize: 35, '@media (max-width:1175px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
@@ -332,7 +323,7 @@ export const AppHeader = () => {
                             <IconButton
                                 onClick={() => openInstagramProfile()}
                                 color="inherit" sx={{
-                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                                fontSize: 35, '@media (max-width:1175px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
@@ -344,7 +335,7 @@ export const AppHeader = () => {
                             <IconButton
                                 onClick={() => openEmailClient()}
                                 color="inherit" sx={{
-                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                                fontSize: 35, '@media (max-width:1175px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
@@ -355,7 +346,7 @@ export const AppHeader = () => {
                             <IconButton
                                 onClick={() => openMapsLocation()}
                                 color="inherit" sx={{
-                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                                fontSize: 35, '@media (max-width:1175px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
@@ -366,7 +357,7 @@ export const AppHeader = () => {
                             <IconButton
                                 onClick={() => openPhoneDialer()}
                                 color="inherit" sx={{
-                                fontSize: 35, '@media (max-width:1150px)': {fontSize: 28},
+                                fontSize: 35, '@media (max-width:1175px)': {fontSize: 28},
                                 transition: 'background-color 0.3s ease, color 0.3s ease',
                                 '&:hover': {
                                     color: '#0080FF',
