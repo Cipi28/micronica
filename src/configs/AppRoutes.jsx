@@ -9,6 +9,7 @@ import {InjectionPlastic} from "../components/InjectionPlastic/index.jsx";
 import {LaserEngraving} from "../components/LaserEngraving/index.jsx";
 import {Weldings} from "../components/Weldings/index.jsx";
 import {DevAndSystems} from "../components/DevAndSystems/index.jsx";
+import {NotFound} from "../components/NotFound/index.jsx";
 
 export const AppRoutes = () => {
     return (
@@ -23,6 +24,7 @@ export const AppRoutes = () => {
                 <Route path={`/micronica/laser-engraving`} element={<LaserEngraving/>}/>
                 <Route path={`/micronica/tig-wig-mig-mag-welding`} element={<Weldings/>}/>
                 <Route path={`/micronica/mechanical-pneumatic-hydraulic-devices-and-systems`} element={<DevAndSystems/>}/>
+                <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>
     );
