@@ -35,6 +35,8 @@ export const AppHeader = () => {
                                     display: {xs: 'none', md: 'flex'},
                                     pl: 1
                                 }}
+                                component={Link}
+                                to={`${import.meta.env.BASE_URL}`}
                         >
                         <img src={logo} alt="Logo" className="logo"/>
                         </Box>
@@ -48,7 +50,12 @@ export const AppHeader = () => {
                                 alignItems: 'center'
                             }}
                         >
+                            <Box
+                                component={Link}
+                                to={`${import.meta.env.BASE_URL}`}
+                            >
                             <img src={logo} alt="Logo" style={{ width: '12rem' }} />
+                            </Box>
                             <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                                 <Button
                                     sx={{
