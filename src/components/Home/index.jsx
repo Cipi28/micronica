@@ -26,13 +26,13 @@ export const Home = () => {
             <ScrollToTopService/>
             <Box
                 sx={{
-                    mt: 10,
-                    height: '90vh',
+                    mt: 20,
+                    height: '77vh',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     '@media (max-width:900px)': {
-                        mt: 6,
+                        mt: 16,
                     },
                     '@media (max-width:600px)': {
                         // mt: 0,

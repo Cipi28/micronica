@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {Facebook, LinkedIn, Instagram, Email, Room, Phone} from '@mui/icons-material';
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
 import {openFacebookProfile, openInstagramProfile, openEmailClient, openMapsLocation, openPhoneDialer} from "../../services/redirectServices.jsx";
-import logo from "../../assets/logo.svg";
+import logoFull from "../../assets/logoFull.svg";
 
 import './AppHeader.css';
 
@@ -33,33 +33,41 @@ export const AppHeader = () => {
                         <Box
                             sx={{
                                     display: {xs: 'none', md: 'flex'},
-                                    pl: 1
                                 }}
                                 component={Link}
                                 to={`${import.meta.env.BASE_URL}`}
                         >
-                        <img src={logo} alt="Logo" className="logo"/>
+                        <img src={logoFull} alt="Logo" className="logo"/>
                         </Box>
                         <Box
                             sx={{
-                                mt: 1,
                                 flexGrow: 1,
                                 display: {xs: 'flex', md: 'none'},
                                 flexDirection: 'column',
-                                justifyContent: 'center',
-                                alignItems: 'center'
                             }}
                         >
                             <Box
                                 component={Link}
                                 to={`${import.meta.env.BASE_URL}`}
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'flex-start',
+                                    alignItems: 'flex-start',
+                                    width: '100%',
+                                }}
                             >
-                            <img src={logo} alt="Logo" style={{ width: '12rem' }} />
+                            <img src={logoFull} alt="Logo" style={{ width: '19rem' }} />
                             </Box>
-                            <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                            <Box sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                width: '100%',
+                                flexDirection: 'row',
+                            }}>
                                 <Button
                                     sx={{
-                                        my: 2,
+                                        mb: 1,
                                         color: 'white',
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',
@@ -76,7 +84,7 @@ export const AppHeader = () => {
                                 </Button>
                                 <Button
                                     sx={{
-                                        my: 2,
+                                        mb: 1,
                                         color: 'white',
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',
@@ -93,7 +101,7 @@ export const AppHeader = () => {
                                 </Button>
                                 <Button
                                     sx={{
-                                        my: 2,
+                                        mb: 1,
                                         color: 'white',
                                         display: 'block',
                                         fontFamily: 'Montserrat, Arial, sans-serif',

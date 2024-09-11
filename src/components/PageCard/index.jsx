@@ -9,8 +9,8 @@ export default function PageCard({title, image, link}) {
             component={Link} to={link}
             sx={{
                 padding: 0,
-                maxWidth: 380,
-                maxHeight: 380,
+                maxWidth: 325,
+                maxHeight: 325,
                 width: '100%',
                 height: '100%',
                 '@media (max-width:900px)': {
@@ -34,7 +34,7 @@ export default function PageCard({title, image, link}) {
                         position: 'absolute',
                         bottom: 0,
                         width: '100%',
-                        background: 'rgba(0, 0, 0, 0.5)',
+                        background: 'rgba(0, 0, 0, 0.7)',
                         color: 'white',
                         textAlign: 'center',
                         padding: '0.5rem',
@@ -46,16 +46,16 @@ export default function PageCard({title, image, link}) {
                         component="div"
                         sx={{
                             '@media (max-width:600px)': {
-                                fontSize: '0.5rem',
-                            },
-                            '@media (min-width:600px)': {
                                 fontSize: '0.6rem',
                             },
+                            '@media (min-width:600px)': {
+                                fontSize: '0.9rem',
+                            },
                             '@media (min-width:960px)': {
-                                fontSize: '0.75rem',
+                                fontSize: '1.1rem',
                             },
                             '@media (min-width:1280px)': {
-                                fontSize: '1.1rem',
+                                fontSize: '1.5rem',
                             },
                         }}
                     >

@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 .logo {
-    width: 15rem;
+    width: 20rem;
+}
+
+@media (max-width: 1250px) {
+    .logo {
+        width: 16rem;
+    }
 }
 
 @media (max-width: 1000px) {
