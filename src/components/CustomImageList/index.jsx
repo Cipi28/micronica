@@ -1,6 +1,17 @@
 import * as React from "react";
-import {Box, Dialog, DialogContent, ImageList, ImageListItem, useMediaQuery, useTheme} from "@mui/material";
+import {
+    Box,
+    Dialog,
+    DialogContent,
+    ImageList,
+    ImageListItem,
+    useMediaQuery,
+    useTheme,
+    IconButton
+} from "@mui/material";
 import {useState} from "react";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export const CustomImageList = ({itemData}) => {
     const theme = useTheme();
@@ -14,16 +25,28 @@ export const CustomImageList = ({itemData}) => {
     };
 
     const [open, setOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState('');
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-    const handleClickOpen = (img) => {
-        setSelectedImage(img);
+    const handleClickOpen = (index) => {
+        setSelectedImageIndex(index);
         setOpen(true);
     };
 
     const handleClose = () => {
         setOpen(false);
-        setSelectedImage('');
+        setSelectedImageIndex(null);
+    };
+
+    const handleNext = () => {
+        setSelectedImageIndex((prevIndex) =>
+            prevIndex === itemData.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const handlePrevious = () => {
+        setSelectedImageIndex((prevIndex) =>
+            prevIndex === 0 ? itemData.length - 1 : prevIndex - 1
+        );
     };
 
     return (
@@ -56,24 +79,70 @@ export const CustomImageList = ({itemData}) => {
                     variant="woven"
                     gap={8}
                 >
-                    {itemData.map((item) => (
-                        <ImageListItem key={item.img} onClick={() => handleClickOpen(item.img)}>
+                    {itemData.map((item, index) => (
+                        <ImageListItem key={item.img} onClick={() => handleClickOpen(index)}>
                             <img
                                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                                 src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
                                 alt={item.title}
-                                loading="lazy"
+                                // loading="lazy"
                                 style={{cursor: 'pointer'}}
                             />
                         </ImageListItem>
                     ))}
                 </ImageList>
             </Box>
-            <Dialog open={open} onClose={handleClose} maxWidth="lg">
-                <DialogContent>
-                    <img src={selectedImage} alt="Selected" style={{width: '100%', height: 'auto'}}/>
-                </DialogContent>
-            </Dialog>
+
+            {selectedImageIndex !== null && (
+                <Dialog open={open} onClose={handleClose}
+                >
+                    <Box sx={{position: 'relative', display: 'flex', alignItems: 'center'}}>
+                        <IconButton
+                            onClick={handlePrevious}
+                            sx={{
+                                position: 'absolute',
+                                left: '2px',
+                                zIndex: 1000,
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                color: 'white',
+                            }}
+                        >
+                            <ArrowBackIosIcon sx={{
+                                fontSize: '2rem',
+                                paddingLeft: '7px',
+                            }}/>
+                        </IconButton>
+
+                        <DialogContent sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <img
+                                src={itemData[selectedImageIndex].img}
+                                alt="Selected"
+                                style={{width: '90%', height: 'auto'}}
+                            />
+                        </DialogContent>
+
+                        <IconButton
+                            onClick={handleNext}
+                            sx={{
+                                position: 'absolute',
+                                right: '2px',
+                                zIndex: 1000,
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                color: 'white',
+                            }}
+                        >
+                            <ArrowForwardIosIcon sx={{
+                                fontSize: '2rem',
+                                paddingLeft: '7px',
+                            }}/>
+                        </IconButton>
+                    </Box>
+                </Dialog>
+            )}
         </>
     );
 };
