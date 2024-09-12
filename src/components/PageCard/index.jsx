@@ -9,7 +9,7 @@ export default function PageCard({title, image, link}) {
             component={Link} to={link}
             sx={{
                 padding: 0,
-                maxWidth: 325,
+                maxWidth: 425,
                 maxHeight: 325,
                 width: '100%',
                 height: '100%',
@@ -37,7 +37,8 @@ export default function PageCard({title, image, link}) {
                         background: 'rgba(0, 0, 0, 0.7)',
                         color: 'white',
                         textAlign: 'center',
-                        padding: '0.5rem',
+                        paddingTop: '0.5rem',
+                        paddingX: '0.5rem',
                     }}
                 >
                     <Typography

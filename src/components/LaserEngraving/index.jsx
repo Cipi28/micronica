@@ -16,7 +16,7 @@ export const LaserEngraving = () => {
     return (
         <Box
             sx={{
-                minHeight: '100vh',
+                minHeight: '80vh',
             }}>
             <ScrollToTopService/>
             <Box
@@ -24,7 +24,8 @@ export const LaserEngraving = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    minHeight: '100vh',
+                    minHeight: '78vh',
+                    mt: 10
                 }}
             >
                 <Box>

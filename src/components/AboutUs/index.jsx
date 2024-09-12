@@ -9,7 +9,7 @@ export const AboutUs = () => {
     return (
         <Box
             sx={{
-                minHeight: '100vh',
+                minHeight: '80vh',
             }}>
             <ScrollToTopService />
             <Box
@@ -17,7 +17,8 @@ export const AboutUs = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    minHeight: '100vh',
+                    minHeight: '80vh',
+                    mt: 18
                 }}
             >
                 <Container maxWidth="xl">

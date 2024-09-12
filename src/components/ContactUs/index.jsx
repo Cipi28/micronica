@@ -98,8 +98,9 @@ export const ContactUs = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                minHeight: '100vh',
+                minHeight: '80vh',
                 py: 10,
+                mt: 12,
             }}
         >
             <ScrollToTopService/>
@@ -208,7 +209,7 @@ export const ContactUs = () => {
                                     error={!!errors.name}
                                     helperText={errors.name}
                                     sx={{
-                                        height: '40px',
+                                        height: '60px',
                                     }}
                                 />
                                 <TextField
@@ -224,7 +225,7 @@ export const ContactUs = () => {
                                     error={!!errors.email}
                                     helperText={errors.email}
                                     sx={{
-                                        height: '40px',
+                                        height: '60px',
                                     }}
                                 />
                                 <TextField
