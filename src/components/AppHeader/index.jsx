@@ -67,6 +67,8 @@ export const AppHeader = () => {
                             }}>
                                 <Button
                                     sx={{
+                                        paddingTop: 0,
+                                        paddingBottom: 0,
                                         mb: 1,
                                         color: 'white',
                                         display: 'block',
@@ -84,6 +86,8 @@ export const AppHeader = () => {
                                 </Button>
                                 <Button
                                     sx={{
+                                        paddingTop: 0,
+                                        paddingBottom: 0,
                                         mb: 1,
                                         color: 'white',
                                         display: 'block',
@@ -101,6 +105,8 @@ export const AppHeader = () => {
                                 </Button>
                                 <Button
                                     sx={{
+                                        paddingTop: 0,
+                                        paddingBottom: 0,
                                         mb: 1,
                                         color: 'white',
                                         display: 'block',
@@ -195,7 +201,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/cnc-machining`}
                                     onClick={handleOffHover}
                                 >
-                                    {isRom ? 'PRELUCRAREA CNC' : 'CNC MACHINING'}
+                                    {isRom ? 'PRELUCRARE CNC' : 'CNC MACHINING'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -212,7 +218,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/3d-printing`}
                                     onClick={handleOffHover}
                                 >
-                                    {isRom ? 'IMPRIMARE 3D PE PUDRĂ, RĂȘINA ȘI FILAMENT' : '3D PRINTING ON POWDER, RESIN & FILAMENT'}
+                                    {isRom ? 'IMPRIMARE 3D PE PULBERE, RĂȘINA ȘI FILAMENT' : '3D PRINTING ON POWDER, RESIN & FILAMENT'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -229,7 +235,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/injection-of-plastic-parts`}
                                     onClick={handleOffHover}
                                 >
-                                    {isRom ? 'INJECTIA DE MASE DIN PLASTIC' : 'INJECTION OF PLASTIC PARTS'}
+                                    {isRom ? 'INJECTIE MASE PLASTICE' : 'INJECTION OF PLASTIC PARTS'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem
@@ -246,7 +252,7 @@ export const AppHeader = () => {
                                     component={Link} to={`/micronica/laser-engraving`}
                                     onClick={handleOffHover}
                                 >
-                                    {isRom ? 'GRAVAREA LASER' : 'LASER ENGRAVING'}
+                                    {isRom ? 'GRAVARE LASER' : 'LASER ENGRAVING'}
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem

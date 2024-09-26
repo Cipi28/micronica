@@ -56,12 +56,13 @@ export const CustomImageList = ({itemData}) => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    mt: {xs: 8, md: 0}
                 }}
             >
                 <ImageList
                     sx={{
                         width: '90%',
-                        height: 400,
+                        height: "28rem",
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         borderRadius: '10px',
@@ -72,7 +73,7 @@ export const CustomImageList = ({itemData}) => {
                         overflowY: 'auto',
                         backgroundColor: '#ffffff',
                         '@media (max-width:600px)': {
-                            height: 300,
+                            height: "25rem",
                         },
                     }}
                     cols={getColumns()}
@@ -98,17 +99,28 @@ export const CustomImageList = ({itemData}) => {
                 >
                     <Box sx={{position: 'relative', display: 'flex', alignItems: 'center'}}>
                         <IconButton
-                            onClick={handlePrevious}
+                            // onClick={handlePrevious}
                             sx={{
                                 position: 'absolute',
                                 left: '2px',
                                 zIndex: 1000,
                                 backgroundColor: 'rgba(0,0,0,0.5)',
                                 color: 'white',
+                                width: {
+                                    xs: '30px',
+                                    md: '50px',
+                                },
+                                height: {
+                                    xs: '30px',
+                                    md: '50px',
+                                },
                             }}
                         >
                             <ArrowBackIosIcon sx={{
-                                fontSize: '2rem',
+                                fontSize: {
+                                    xs: '1.5rem',
+                                    md: '2rem',
+                                },
                                 paddingLeft: '7px',
                             }}/>
                         </IconButton>
@@ -133,10 +145,21 @@ export const CustomImageList = ({itemData}) => {
                                 zIndex: 1000,
                                 backgroundColor: 'rgba(0,0,0,0.5)',
                                 color: 'white',
+                                width: {
+                                    xs: '30px',
+                                    md: '50px',
+                                },
+                                height: {
+                                    xs: '30px',
+                                    md: '50px',
+                                },
                             }}
                         >
                             <ArrowForwardIosIcon sx={{
-                                fontSize: '2rem',
+                                fontSize: {
+                                    xs: '1.5rem',
+                                    md: '2rem',
+                                },
                                 paddingLeft: '7px',
                             }}/>
                         </IconButton>

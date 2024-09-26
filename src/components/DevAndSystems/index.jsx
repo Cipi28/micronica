@@ -40,7 +40,7 @@ export const DevAndSystems = () => {
                             variant="h4"
                             component="h1"
                             gutterBottom
-                            sx={{fontWeight: 'bold', color: '#2c3e50', fontSize: {xs: '1.5rem', md: '2.125rem'}, textAlign: 'center', mt: {xs: 18, md: 12},}}
+                            sx={{fontWeight: 'bold', color: '#2c3e50', fontSize: {xs: '1.7rem', md: '2.125rem'}, textAlign: 'center', mt: 7, display: {xs: 'none', md: 'flex'} }}
                         >
                             {isRom ? 'DISPOZITIVE ȘI SISTEME MECANICE, PNEUMATICE ȘI HIDRAULICE' : 'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'}
                         </Typography>

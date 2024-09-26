@@ -32,7 +32,7 @@ export const Home = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     '@media (max-width:900px)': {
-                        mt: 16,
+                        mt: 14,
                     },
                     '@media (max-width:600px)': {
                         // mt: 0,
@@ -93,21 +93,21 @@ export const Home = () => {
                     {/* Row 1 */}
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={isRom ? 'PRELUCRAREA CNC' : 'CNC MACHINING'}
+                            title={isRom ? 'PRELUCRARE CNC' : 'CNC MACHINING'}
                             image={cncImage}
                             link={'/micronica/cnc-machining'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={isRom ? 'IMPRIMARE 3D PE PUDRĂ, RĂȘINA ȘI FILAMENT' : '3D PRINTING ON POWDER, RESIN & FILAMENT'}
+                            title={isRom ? 'IMPRIMARE 3D PE PULBERE, RĂȘINA ȘI FILAMENT' : '3D PRINTING ON POWDER, RESIN & FILAMENT'}
                             image={TDprinting}
                             link={'/micronica/3d-printing'}
                         />
                     </Grid>
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={isRom ? 'INJECTIA DE MASE DIN PLASTIC' : 'INJECTION OF PLASTIC PARTS'}
+                            title={isRom ? 'INJECTIE MASE PLASTICE' : 'INJECTION OF PLASTIC PARTS'}
                             image={injection}
                             link={'/micronica/injection-of-plastic-parts'}
                         />
@@ -115,7 +115,7 @@ export const Home = () => {
                     {/* Row 2 */}
                     <Grid item xs={6} sm={6} md={4} display="flex" justifyContent="center">
                         <PageCard
-                            title={isRom ? 'GRAVAREA LASER' : 'LASER ENGRAVING'}
+                            title={isRom ? 'GRAVARE LASER' : 'LASER ENGRAVING'}
                             image={laserEng}
                             link={'/micronica/laser-engraving'}
                         />
