@@ -100,7 +100,7 @@ export const ContactUs = () => {
                 alignItems: 'center',
                 minHeight: '80vh',
                 py: 10,
-                mt: 12,
+                mt: {xs: 2, md: 10}
             }}
         >
             <ScrollToTopService/>

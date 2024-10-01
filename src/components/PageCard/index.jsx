@@ -1,8 +1,16 @@
 import * as React from 'react';
 import {CardActionArea, Box, Typography, CardMedia, Card } from '@mui/material';
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
-export default function PageCard({title, image, link}) {
+export default function PageCard({title, image, gif, link}) {
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+
+    const handleTouchStart = () => setIsHovered(true);
+    const handleTouchEnd = () => setIsHovered(false);
 
     return (
         <Card
@@ -10,22 +18,35 @@ export default function PageCard({title, image, link}) {
             sx={{
                 padding: 0,
                 maxWidth: 425,
-                maxHeight: 325,
+                maxHeight: 300,
                 width: '100%',
                 height: '100%',
                 '@media (max-width:900px)': {
                     maxWidth: 200,
                     maxHeight: 200,
                 },
+                '@media (max-height: 750px)': {
+                    maxWidth: 425,
+                    maxHeight: 250,
+                },
+                '@media (max-height: 675px)': {
+                    maxWidth: 350,
+                    maxHeight: 200,
+                },
                 display: 'flex', flexDirection: 'column',
                 textDecoration: 'none',
                 boxShadow: 10,
                 borderRadius: 2,
-            }}>
+            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+        >
             <CardActionArea sx={{height: '100%', position: 'relative'}}>
                 <CardMedia
                     component="img"
-                    image={image}
+                    image={isHovered ? gif : image}
                     alt={`${title} image`}
                     sx={{height: '100%', width: '100%'}}
                 />
@@ -57,6 +78,9 @@ export default function PageCard({title, image, link}) {
                             },
                             '@media (min-width:1280px)': {
                                 fontSize: '1.5rem',
+                            },
+                            '@media (max-height: 675px)': {
+                                fontSize: '1.1rem',
                             },
                         }}
                     >

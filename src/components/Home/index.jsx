@@ -26,13 +26,13 @@ export const Home = () => {
             <ScrollToTopService/>
             <Box
                 sx={{
-                    mt: 20,
-                    height: '77vh',
+                    mt: 25,
+                    height: '60vh',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     '@media (max-width:900px)': {
-                        mt: 14,
+                        mt: 22,
                     },
                     '@media (max-width:600px)': {
                         // mt: 0,
@@ -95,6 +95,7 @@ export const Home = () => {
                         <PageCard
                             title={isRom ? 'PRELUCRARE CNC' : 'CNC MACHINING'}
                             image={cncImage}
+                            gif={'https://www.infusedmedia.co.uk/wp-content/uploads/2021/10/bore-5-4-gif-lossy.gif'}
                             link={'/micronica/cnc-machining'}
                         />
                     </Grid>
@@ -102,6 +103,7 @@ export const Home = () => {
                         <PageCard
                             title={isRom ? 'IMPRIMARE 3D PE PULBERE, RĂȘINA ȘI FILAMENT' : '3D PRINTING ON POWDER, RESIN & FILAMENT'}
                             image={TDprinting}
+                            gif={'https://www.infusedmedia.co.uk/wp-content/uploads/2021/10/bore-5-4-gif-lossy.gif'}
                             link={'/micronica/3d-printing'}
                         />
                     </Grid>
@@ -109,6 +111,7 @@ export const Home = () => {
                         <PageCard
                             title={isRom ? 'INJECTIE MASE PLASTICE' : 'INJECTION OF PLASTIC PARTS'}
                             image={injection}
+                            gif={'https://www.infusedmedia.co.uk/wp-content/uploads/2021/10/bore-5-4-gif-lossy.gif'}
                             link={'/micronica/injection-of-plastic-parts'}
                         />
                     </Grid>
@@ -117,6 +120,7 @@ export const Home = () => {
                         <PageCard
                             title={isRom ? 'GRAVARE LASER' : 'LASER ENGRAVING'}
                             image={laserEng}
+                            gif={'https://www.infusedmedia.co.uk/wp-content/uploads/2021/10/bore-5-4-gif-lossy.gif'}
                             link={'/micronica/laser-engraving'}
                         />
                     </Grid>
@@ -124,6 +128,7 @@ export const Home = () => {
                         <PageCard
                             title={isRom ? 'SUDURĂ TIG/WIG/MIG/MAG' : 'TIG/WIG/MIG/MAG WELDING'}
                             image={welding}
+                            gif={'https://www.infusedmedia.co.uk/wp-content/uploads/2021/10/bore-5-4-gif-lossy.gif'}
                             link={'/micronica/tig-wig-mig-mag-welding'}
                         />
                     </Grid>
@@ -131,6 +136,7 @@ export const Home = () => {
                         <PageCard
                             title={isRom ? 'DISPOZITIVE ȘI SISTEME MECANICE, PNEUMATICE ȘI HIDRAULICE' : 'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'}
                             image={pneumHidr}
+                            gif={'https://www.infusedmedia.co.uk/wp-content/uploads/2021/10/bore-5-4-gif-lossy.gif'}
                             link={'/micronica/mechanical-pneumatic-hydraulic-devices-and-systems'}
                         />
                     </Grid>

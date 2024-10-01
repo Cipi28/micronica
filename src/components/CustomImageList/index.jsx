@@ -99,7 +99,7 @@ export const CustomImageList = ({itemData}) => {
                 >
                     <Box sx={{position: 'relative', display: 'flex', alignItems: 'center'}}>
                         <IconButton
-                            // onClick={handlePrevious}
+                            onClick={handlePrevious}
                             sx={{
                                 position: 'absolute',
                                 left: '2px',
@@ -108,11 +108,17 @@ export const CustomImageList = ({itemData}) => {
                                 color: 'white',
                                 width: {
                                     xs: '30px',
-                                    md: '50px',
+                                    md: '45px',
                                 },
                                 height: {
                                     xs: '30px',
-                                    md: '50px',
+                                    md: '45px',
+                                },
+                                '&:hover': {
+                                    backgroundColor: 'rgba(0,0,0,0.5)',  // Keep the background color on hover
+                                },
+                                '&:active': {
+                                    backgroundColor: 'rgba(0,0,0,0.5)',  // Keep the background color on active/press
                                 },
                             }}
                         >
@@ -147,11 +153,17 @@ export const CustomImageList = ({itemData}) => {
                                 color: 'white',
                                 width: {
                                     xs: '30px',
-                                    md: '50px',
+                                    md: '45px',
                                 },
                                 height: {
                                     xs: '30px',
-                                    md: '50px',
+                                    md: '45px',
+                                },
+                                '&:hover': {
+                                    backgroundColor: 'rgba(0,0,0,0.5)',  // Keep the background color on hover
+                                },
+                                '&:active': {
+                                    backgroundColor: 'rgba(0,0,0,0.5)',  // Keep the background color on active/press
                                 },
                             }}
                         >

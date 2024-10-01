@@ -18,7 +18,7 @@ export const AboutUs = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     minHeight: '80vh',
-                    mt: 18
+                    mt: {xs: 12, md: 14}
                 }}
             >
                 <Container maxWidth="xl">
@@ -43,11 +43,11 @@ export const AboutUs = () => {
                     >
                         <Grid container spacing={5} alignItems="center">
                             <Grid item xs={12} md={6}>
-                                <Paper elevation={3} sx={{borderRadius: '10px', overflow: 'hidden', display: {xs: 'none', md: 'flex'}}}>
+                                <Paper elevation={3} sx={{width: '80%', borderRadius: '10px', overflow: 'hidden', display: {xs: 'none', md: 'flex'}}}>
                                     <img src={cncImage} alt="Micronica Team" style={{width: '100%', height: 'auto'}}/>
                                 </Paper>
                             </Grid>
-                            <Grid item xs={12} md={6} sx={{pt: 30}}>
+                            <Grid item xs={12} md={6} >
                                 <Typography
                                     variant="h4"
                                     component="h1"
