@@ -68,7 +68,7 @@ export default function PageCard({title, image, gif, link}) {
                         component="div"
                         sx={{
                             '@media (max-width:600px)': {
-                                fontSize: '0.6rem',
+                                fontSize: '0.5rem',
                             },
                             '@media (min-width:600px)': {
                                 fontSize: '0.9rem',
