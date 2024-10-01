@@ -68,7 +68,7 @@ export default function PageCard({title, image, gif, link}) {
                         component="div"
                         sx={{
                             '@media (max-width:600px)': {
-                                fontSize: '0.5rem',
+                                fontSize: '0.6rem',
                             },
                             '@media (min-width:600px)': {
                                 fontSize: '0.9rem',
@@ -79,9 +79,7 @@ export default function PageCard({title, image, gif, link}) {
                             '@media (min-width:1280px)': {
                                 fontSize: '1.5rem',
                             },
-                            '@media (max-height: 675px)': {
-                                fontSize: '1.1rem',
-                            },
+
                         }}
                     >
                         {title}
