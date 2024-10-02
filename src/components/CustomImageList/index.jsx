@@ -77,17 +77,21 @@ export const CustomImageList = ({itemData}) => {
                         },
                     }}
                     cols={getColumns()}
-                    variant="woven"
+                    variant="standard"
                     gap={8}
                 >
                     {itemData.map((item, index) => (
-                        <ImageListItem key={item.img} onClick={() => handleClickOpen(index)}>
+                        <ImageListItem key={item} onClick={() => handleClickOpen(index)}>
                             <img
-                                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                                alt={item.title}
-                                // loading="lazy"
-                                style={{cursor: 'pointer'}}
+                                srcSet={`${item}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                src={`${item}?w=164&h=164&fit=crop&auto=format`}
+                                loading="lazy"
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    objectFit: 'contain',
+                                    cursor: 'pointer'
+                                }}
                             />
                         </ImageListItem>
                     ))}
@@ -137,7 +141,7 @@ export const CustomImageList = ({itemData}) => {
                             alignItems: 'center',
                         }}>
                             <img
-                                src={itemData[selectedImageIndex].img}
+                                src={itemData[selectedImageIndex]}
                                 alt="Selected"
                                 style={{width: '90%', height: 'auto'}}
                             />
