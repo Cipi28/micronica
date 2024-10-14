@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
-import { Typography, Container, Box } from "@mui/material";
+import { Typography, Container, Box, CircularProgress } from "@mui/material";
 import {CustomImageList} from "../CustomImageList/index.jsx";
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
 import ScrollToTopService from "../../services/ScrollToTopService.jsx";
@@ -10,12 +10,16 @@ import { listAll, ref, getDownloadURL } from 'firebase/storage';
 export const CNCMach = () => {
     const {isRom, setISRom} = useLanguage();
     const [imgsUrl, setImgsUrl] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         listAll(ref(imageDb, 'CNCMachining')).then(imgs => {
+            if (imgs.items.length === 0) setLoading(false);
+
             imgs.items.forEach(val=>{
                 getDownloadURL(val).then(url=>{
                     setImgsUrl(data=>[...data,url])
+                    setLoading(false)
                 })
             })
         })
@@ -53,7 +57,20 @@ export const CNCMach = () => {
                             {isRom ? 'PRELUCRARE CNC' : 'CNC MACHINING'}
                         </Typography>
                     </Box>
-                    <CustomImageList itemData={imgsUrl}/>
+                    {loading ? (
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                minHeight: '28rem',
+                            }}
+                        >
+                            <CircularProgress />
+                        </Box>
+                    ) : (
+                        <CustomImageList itemData={imgsUrl} />
+                    )}
                     <Container maxWidth="lg" sx={{
                         marginTop: 4,
                     }}>

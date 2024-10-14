@@ -1,6 +1,6 @@
 import * as React from "react";
 import {CustomImageList} from "../CustomImageList/index.jsx";
-import { Container, Typography, Box } from "@mui/material";
+import { Container, Typography, Box, CircularProgress } from "@mui/material";
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
 import ScrollToTopService from "../../services/ScrollToTopService.jsx";
 import { imageDb } from '../../FirebaseImageUpload/Config';
@@ -10,12 +10,16 @@ import {useEffect, useState} from "react";
 export const LaserEngraving = () => {
     const {isRom, setISRom} = useLanguage();
     const [imgsUrl, setImgsUrl] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         listAll(ref(imageDb, 'LaserEngraving')).then(imgs => {
+            if (imgs.items.length === 0) setLoading(false);
+
             imgs.items.forEach(val=>{
                 getDownloadURL(val).then(url=>{
                     setImgsUrl(data=>[...data,url])
+                    setLoading(false)
                 })
             })
         })
@@ -53,7 +57,20 @@ export const LaserEngraving = () => {
                             {isRom ? 'GRAVARE LASER' : 'LASER ENGRAVING'}
                         </Typography>
                     </Box>
-                    <CustomImageList itemData={imgsUrl}/>
+                    {loading ? (
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                minHeight: '28rem',
+                            }}
+                        >
+                            <CircularProgress />
+                        </Box>
+                    ) : (
+                        <CustomImageList itemData={imgsUrl} />
+                    )}
                     <Container maxWidth="lg" sx={{
                         marginTop: 4,
                     }}>

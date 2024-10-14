@@ -20,9 +20,9 @@ export const ContactUs = () => {
     const [errors, setErrors] = useState({});
 
     const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const EMAIL_JS_USER_ID = '_oITw2nA-QrpG8wQH';
-    const EMAIL_JS_SERVICE_ID = 'service_up4yv27';
-    const EMAIL_JS_TEMPLATE_ID = 'template_62b1vj9';
+    const EMAIL_JS_USER_ID = '1yFj28FwfkoJYixWv';
+    const EMAIL_JS_SERVICE_ID = 'service_91o88ua';
+    const EMAIL_JS_TEMPLATE_ID = 'template_e5ki91j';
 
     const handleChange = (e) => {
         setFormData({

@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
-import {Box, Container, Typography } from '@mui/material';
+import {Box, Container, Typography, CircularProgress } from '@mui/material';
 import {CustomImageList} from "../CustomImageList/index.jsx";
 import {useLanguage} from '../../configs/LanguageProvider.jsx';
 import ScrollToTopService from "../../services/ScrollToTopService.jsx";
@@ -10,12 +10,16 @@ import { listAll, ref, getDownloadURL } from 'firebase/storage';
 export const DevAndSystems = () => {
     const {isRom, setISRom} = useLanguage();
     const [imgsUrl, setImgsUrl] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         listAll(ref(imageDb, 'MechPneumHydrDevAndSystems')).then(imgs => {
+            if (imgs.items.length === 0) setLoading(false);
+
             imgs.items.forEach(val=>{
                 getDownloadURL(val).then(url=>{
                     setImgsUrl(data=>[...data,url])
+                    setLoading(false)
                 })
             })
         })
@@ -53,7 +57,20 @@ export const DevAndSystems = () => {
                             {isRom ? 'DISPOZITIVE ȘI SISTEME MECANICE, PNEUMATICE ȘI HIDRAULICE' : 'MECHANICAL, PNEUMATIC AND HYDRAULIC DEVICES AND SYSTEMS'}
                         </Typography>
                     </Box>
-                    <CustomImageList itemData={imgsUrl}/>
+                    {loading ? (
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                minHeight: '28rem',
+                            }}
+                        >
+                            <CircularProgress />
+                        </Box>
+                    ) : (
+                        <CustomImageList itemData={imgsUrl} />
+                    )}
                     <Container maxWidth="lg" sx={{
                         marginTop: 4,
                     }}>

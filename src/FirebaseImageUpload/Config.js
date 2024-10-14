@@ -6,12 +6,12 @@ import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAyCyqZYN92ABVKzGXC6Ppd9jPWVyYCzO0",
-    authDomain: "micronicadb.firebaseapp.com",
-    projectId: "micronicadb",
-    storageBucket: "micronicadb.appspot.com",
-    messagingSenderId: "930547759251",
-    appId: "1:930547759251:web:451922a3eedc3e44467566"
+    apiKey: "AIzaSyC1YGZl3IrW-GPoxlGQ5CdrIJYsARMgwqI",
+    authDomain: "micronicadb-79e46.firebaseapp.com",
+    projectId: "micronicadb-79e46",
+    storageBucket: "micronicadb-79e46.appspot.com",
+    messagingSenderId: "130374474253",
+    appId: "1:130374474253:web:b99b3c480e089402421344"
 };
 
 // Initialize Firebase

@@ -62,7 +62,7 @@ export const CustomImageList = ({itemData}) => {
                 <ImageList
                     sx={{
                         width: '90%',
-                        height: "28rem",
+                        height: '28rem',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         borderRadius: '10px',
